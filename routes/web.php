@@ -12,5 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome', ['name' => 'Team 19 Web Application']);
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
