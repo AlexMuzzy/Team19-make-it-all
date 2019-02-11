@@ -1,0 +1,88 @@
+.m-gradient {
+	background: linear-gradient(90deg, rgba(2, 119, 233, 1) 0%, rgba(61, 211, 246, 1) 100%);
+}
+
+.login {
+	font-family: 'Open Sans', sans-serif;
+}
+
+.login .title {
+	font-weight: 600;
+	font-size: 5rem;
+}
+
+.login .subtitle {
+	color: #b4b4b4;
+	padding-top: 10px;
+}
+
+.login .btn {
+	width: 100%;
+	font-weight: 500;
+}
+
+.login .form {
+	padding-top: 30px;
+}
+
+.login .button {
+	padding-top: 30px;
+}
+
+.login .d1 {
+	color: white;
+}
+
+@media only screen and (max-width: 600px) {
+	.col-respons {
+		width: 100%;
+	}
+
+	.login .d1 {
+		font-size: 10rem;
+	}
+
+	.logcall-padding {
+		padding: 0 15px !important;
+	}
+}
+
+@media only screen and (min-width: 600px) {
+	.full-page {
+		height: 100vh;
+		margin-bottom: 0;
+	}
+
+	.login .d1 {
+		font-size: 20rem;
+	}
+
+	.login .icon-aligner {
+		transform: translateY(80%);
+	}
+
+	.login .aligner {
+		transform: translateY(35%);
+	}
+
+}
+
+.no-padding {
+	padding: 0px !important
+}
+
+.nav-logcall {
+	background-color: white;
+	color: rgba(61, 211, 246, 1);
+	padding: 0 15px;
+	font-size: 1.0rem;
+	border: none;
+}
+
+i.logcall-right {
+	color: rgba(61, 211, 246, 1);
+}
+
+.linear-back {
+	background: linear-gradient(90deg, rgba(2, 119, 233, 1), rgba(61, 211, 246, 1));
+}
