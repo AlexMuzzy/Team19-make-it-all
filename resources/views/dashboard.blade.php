@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="utf-8">
@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
         crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="styles/dashboard.css">
+    <link rel="stylesheet" type="text/css" href={{asset('css/dashboard.css')}}>
     <script>
         (document).ready(function () {
             $enable - shadows;
@@ -26,13 +26,12 @@
         <div class="row linear-back shadow p-3 mb-5 bg-white rounded">
             <div class="container d-flex align-items-center">
                 <div class="col-md-7 text-light my-5 text-center text-md-left">
-                    <h1 class="display-2 font-weight-bold respons-display">Hello Alice!</h1>
+                    <h1 class="display-2 font-weight-bold respons-display">Hello {{Auth::user()->name}}</h1>
                     <h4>Please Select Past or Existing Cases</h4>
                 </div>
                 <div class="col-md-5 d-none d-md-block my-5 text-right">
                     <div class="d-inline-flex rounded-circle bg-light shadow p-3 mb-5 rounded">
                         <i class="fas fa-9x fa-wrench logo-color m-3"></i>
-                        <!--Jacques vector graphic goes here-->
                     </div>
                 </div>
             </div>
@@ -92,7 +91,7 @@
                                 <i class="fas fa-search fa-6x logo-color"></i>
                             </p>
                             <p class="card-title card-footer dashboard-text mb-5">View Cases</p>
-                            <a href="cases.html" class="card-link dashboard-link mb-5">Browse Existing Cases</a>
+                            <a href={{route('index@CasesController')}} class="card-link dashboard-link mb-5">Browse Existing Cases</a>
                         </div>
                     </div>
                 </div>
