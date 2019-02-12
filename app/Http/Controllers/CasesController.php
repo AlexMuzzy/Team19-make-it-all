@@ -14,8 +14,8 @@ class CasesController extends Controller
      */
     public function index()
     {
-        //
-        return view('cases.view');
+        return view('cases.cases');
+        //Return cases table view with name of route.
     }
 
     /**
