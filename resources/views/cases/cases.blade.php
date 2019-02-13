@@ -9,7 +9,7 @@
                         placeholder="Search Existing Cases...">
                 </div>
                 <div class="col-auto">
-                    <button class="btn btn-lg btn-primary-outline" type="submit">
+                    <button class="btn btn-lg btn-primary-outline d-none d-md-block" type="submit">
                         <i class="fas fa-search logo-color"></i>
                     </button>
                 </div>
@@ -26,12 +26,29 @@
                             <th scope="col">Priority</th>
                             <th scope="col">Summary</th>
                             <th scope="col">Solved</th>
+                            <th scope="col">Edit</th>
                         </tr>
                     </thead>
+                    <tbody>
+                        @foreach($cases as $case)
+                        <tr>
+                            <td>{{$case->id}}</td>
+                            <td>{{$case->fname}}</td>
+                            <td>{{$case->sname}}</td>
+                            <td>{{$case->category}}</td>
+                            <td>{{$case->issue}}</td>
+                            <td>{{$case->priority}}</td>
+                            <td>{{$case->summary}}</td>
+                            <td>{{$case->solved}}</td>
+                            <td>
+                                <a href={{route('cases.edit', $case->id)}} class="btn btn-primary-outline">Edit</a>
+                            </td>
+                        </tr>
+                        @endforeach
                 </table>
             </div>
-            <a class="row align-items-right mt-5">
-                <button class="btn btn-lg btn-primary-outline" type="button" href={{route('home')}}>{{__('New Case')}}</button>
+            <a class="row align-items-right p-3" href={{route('cases.create')}}>
+                <button class="btn btn-lg btn-primary-outline" type="button">{{__('New Case')}}</button>
             </a>
         </div>
     </section>

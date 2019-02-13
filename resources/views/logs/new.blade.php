@@ -13,7 +13,7 @@
         </div>
         <br />
         @endif
-        <form method="POST" action="{{route('cases.store')}}">
+        <form method="POST" action="{{route('logs.store')}}">
             @csrf
             <div class="col-md-6 float-md-left">
                 <div class="form-row">

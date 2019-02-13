@@ -76,10 +76,10 @@
                     <div class="card">
                         <div class="card-block text-center my-4 shadow p-3 mb-5 rounded font-weight-bold">
                             <p class="card-text">
-                                <i class="fas fa-plus-circle fa-6x logo-color"></i>
+                                <i class="fas fa-compact-disc fa-6x logo-color"></i>
                             </p>
-                            <p class="card-title card-footer dashboard-text mb-5">Add New Case</p>
-                            <a href="addcase.html" class="card-link dashboard-link mb-5">Add a New Query</a>
+                            <p class="card-title card-footer dashboard-text mb-5">Software Register</p>
+                            <a href="addcase.html" class="card-link dashboard-link mb-5">View Software</a>
                         </div>
                     </div>
                 </div>
@@ -91,7 +91,7 @@
                                 <i class="fas fa-search fa-6x logo-color"></i>
                             </p>
                             <p class="card-title card-footer dashboard-text mb-5">View Cases</p>
-                            <a href={{route('cases')}} class="card-link dashboard-link mb-5">Browse Existing Cases</a>
+                            <a href={{route('cases.index')}} class="card-link dashboard-link mb-5">Browse Existing Cases</a>
                         </div>
                     </div>
                 </div>

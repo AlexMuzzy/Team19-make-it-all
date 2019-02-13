@@ -14,7 +14,8 @@ class CasesController extends Controller
      */
     public function index()
     {
-        return view('cases.cases');
+        $cases = cases::all();
+        return view('cases.cases', compact('cases'));
         //Return cases table view with name of route.
     }
 
@@ -26,6 +27,7 @@ class CasesController extends Controller
     public function create()
     {
         //
+        return view('cases.new');
     }
 
     /**
@@ -37,6 +39,26 @@ class CasesController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'fname'=>'required',
+            'sname'=> 'required',
+            'category' => 'required',
+            'issue' => 'required',
+            'priority' => 'required',
+            'summary' => 'required'
+          ]);
+          $case = new cases([
+            'fname' => $request->get('fname'),
+            'sname'=> $request->get('sname'),
+            'category'=> $request->get('category'),
+            'issue'=> $request->get('issue'),
+            'priority'=> $request->get('priority'),
+            'summary'=> $request->get('summary'),
+            'description' => $request->get('description'),
+            'solved' => $request->get('solved')
+          ]);
+          $case->save();
+          return redirect()->action('CasesController@index',['Success' => 'Case has been added.']);
     }
 
     /**

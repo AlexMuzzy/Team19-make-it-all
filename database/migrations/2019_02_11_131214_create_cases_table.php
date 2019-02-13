@@ -17,6 +17,12 @@ class CreateCasesTable extends Migration
             $table->increments('id');
             $table->string('fname');
             $table->string('sname');
+            $table->string('category');
+            $table->string('issue');
+            $table->string('priority');
+            $table->string('summary');
+            $table->string('description');
+            $table->boolean('solved')->default(false);
             $table->timestamps();
         });
     }

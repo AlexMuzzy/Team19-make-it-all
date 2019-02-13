@@ -1,5 +1,8 @@
 <?php
     $name = ucfirst(Route::currentRouteName());
+    if (strpos($name, '.')){
+        $name = substr($name, 0, strpos($name, '.'));
+    }
 ?>
 
 <!DOCTYPE html>
@@ -47,7 +50,7 @@
                         </a>
                     </li>
                     <li class="nav-item ml-2">
-                        <a class="nav-link" href="logs.html">
+                        <a class="nav-link" href={{route('logs.index')}}>
                             <i class="fas fa-phone"></i> Call Logs
                         </a>
                     </li>
@@ -57,7 +60,7 @@
                         </a>
                     </li>
                     <li class="nav-item ml-2">
-                        <a class="nav-link" href={{route('cases')}}>
+                        <a class="nav-link" href={{route('cases.index')}}>
                             <i class="fas fa-clipboard"></i> View Cases
                         </a>
                     </li>
@@ -66,28 +69,35 @@
                             <i class="fas fa-keyboard"></i> Hardware
                         </a>
                     </li>
+                    <li class="nav-item ml-2">
+                            <a class="nav-link" href="hardware.html">
+                                <i class="fas fa-compact-disc"></i> Software
+                            </a>
+                        </li>
                     <li class="nav-item ml-2 d-sm-block d-md-none">
-                        <a class="nav-link" href="login.html">
-                            <i class="fas fa-sign-out-alt"></i> Logout
+                        <a class="nav-link" href={{ route('logout') }} onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <i class="fas fa-sign-out-alt"></i> {{ __('logout') }}
                         </a>
                     </li>
                 </ul>
                 <a class="nav-item ml-3 d-none d-md-block">
-                    <div class="inset">
-                        <img src="assets/pexels-photo-555790.jpg">
-                    </div>
+                    {{Auth::user()->name}}
                 </a>
                 <ul class="nav navbar-nav navbar-right d-none d-md-block">
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbar-main-dropdown" data-toggle="dropdown"></a>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="login.html">logout</a>
+                            <a class="dropdown-item" href={{ route('logout') }} onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('logout') }}</a>
                         </div>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+    </form>
     @yield('content')
 </body>
 
