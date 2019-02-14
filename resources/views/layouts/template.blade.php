@@ -61,7 +61,7 @@
                     </li>
                     <li class="nav-item ml-2">
                         <a class="nav-link" href={{route('cases.index')}}>
-                            <i class="fas fa-clipboard"></i> View Cases
+                            <i class="fas fa-clipboard"></i> Cases
                         </a>
                     </li>
                     <li class="nav-item ml-2">

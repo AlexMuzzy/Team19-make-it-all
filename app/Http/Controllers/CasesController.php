@@ -45,7 +45,8 @@ class CasesController extends Controller
             'category' => 'required',
             'issue' => 'required',
             'priority' => 'required',
-            'summary' => 'required'
+            'description' => 'required'
+
           ]);
           $case = new cases([
             'fname' => $request->get('fname'),
@@ -53,7 +54,6 @@ class CasesController extends Controller
             'category'=> $request->get('category'),
             'issue'=> $request->get('issue'),
             'priority'=> $request->get('priority'),
-            'summary'=> $request->get('summary'),
             'description' => $request->get('description'),
             'solved' => $request->get('solved')
           ]);
@@ -78,9 +78,12 @@ class CasesController extends Controller
      * @param  \App\cases  $cases
      * @return \Illuminate\Http\Response
      */
-    public function edit(cases $cases)
+    public function edit($id)
     {
         //
+        $case = Cases::find($id);
+
+        return view('cases.edit', compact('case'));
     }
 
     /**
@@ -90,9 +93,31 @@ class CasesController extends Controller
      * @param  \App\cases  $cases
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, cases $cases)
+    public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'fname'=>'required',
+            'sname'=> 'required',
+            'category' => 'required',
+            'issue' => 'required',
+            'priority' => 'required',
+            'solved' => 'required',
+            'description' => 'required'
+        ]);
+        
+        $case = Cases::find($id);
+        $case->fname=$request->get('fname');
+        $case->sname=$request->get('fname');
+        $case->category=$request->get('category');
+        $case->issue=$request->get('issue');
+        $case->priority=$request->get('priority');
+        $case->solved=$request->get('solved');
+        $case->description=$request->get('description');
+        
+        $case->save();
+
+        return redirect()->action('CasesController@index',['Success' => 'Case has been updated.']);
     }
 
     /**

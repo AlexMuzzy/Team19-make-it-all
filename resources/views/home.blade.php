@@ -34,6 +34,9 @@
                         <i class="fas fa-9x fa-wrench logo-color m-3"></i>
                     </div>
                 </div>
+                <a class="btn" href={{ route('logout') }} onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    {{__('logout')}}
+                </a>
             </div>
         </div>
     </header>
@@ -135,6 +138,9 @@
             </div>
         </div>
     </section>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+    </form>
 </body>
 
 </html>
