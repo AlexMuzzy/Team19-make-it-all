@@ -15,6 +15,12 @@ class CreateSpecialistsTable extends Migration
     {
         Schema::create('specialists', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('employeeID');
+            $table->boolean('hardwareExpert')->default(false);
+            $table->boolean('softwareExpert')->default(false);
+            $table->boolean('networkExpert')->default(false);
+            $table->integer('assignedCases');
+            $table->integer('solvedCases');
             $table->timestamps();
         });
     }

@@ -15,6 +15,9 @@ class CreateSoftwareTable extends Migration
     {
         Schema::create('software', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('software');
+            $table->boolean('supported')->default(false);
+            $table->boolean('licensed')->default(true);
             $table->timestamps();
         });
     }

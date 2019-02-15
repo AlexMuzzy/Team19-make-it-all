@@ -15,6 +15,12 @@ class CreateLogsTable extends Migration
     {
         Schema::create('logs', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('caller');
+            $table->string('operator');
+            $table->dateTime('dateTime');
+            $table->string('hardwareSN');
+            $table->string('OS');
+            $table->string('software');
             $table->timestamps();
         });
     }
