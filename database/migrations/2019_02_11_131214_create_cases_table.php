@@ -20,7 +20,7 @@ class CreateCasesTable extends Migration
             $table->string('category');
             $table->string('issue');
             $table->string('priority');
-            $table->text('description');
+            $table->text('summary');
             $table->boolean('solved')->default(false);
             $table->timestamps();
         });

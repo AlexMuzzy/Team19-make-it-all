@@ -18,8 +18,10 @@
                 <thead>
                     <tr>
                         <th scope="col">Personnel ID</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
                         <th scope="col">Operator</th>
-                        <th scope="col">Date Created</th>
+                        <th scope="col">DateTime Created</th>
                         <th scope="col">Case ID</th>
                         <th scope="col">Telephone Number</th>
                     </tr>
