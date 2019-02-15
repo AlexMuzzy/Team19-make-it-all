@@ -14,7 +14,6 @@ class cases extends Model
         'issue',
         'priority',
         'summary',
-        'description',
         'solved'
     ];
 
