@@ -126,8 +126,12 @@ class CasesController extends Controller
      * @param  \App\cases  $cases
      * @return \Illuminate\Http\Response
      */
-    public function destroy(cases $cases)
+    public function destroy($id)
     {
         //
+        $case = Cases::find($id);
+        $case->delete();
+
+        return redirect()->action('CasesController@index',['Success' => 'Case has been deleted.']);
     }
 }

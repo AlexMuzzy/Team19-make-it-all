@@ -27,6 +27,8 @@
                             <th scope="col">Summary</th>
                             <th scope="col">Solved</th>
                             <th scope="col">Edit</th>
+                            <th scope="col">Delete</th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -42,6 +44,13 @@
                             <td>{{$case->solved}}</td>
                             <td>
                                 <a href={{route('cases.edit', $case->id)}} class="btn btn-primary-outline">Edit</a>
+                            </td>
+                            <td>
+                                <form action={{ route('cases.destroy', $case->id) }} method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-danger" type="submit">{{__('Delete')}}</button>
+                                </form>
                             </td>
                         </tr>
                         @endforeach
