@@ -45,7 +45,7 @@
                         </a>
                     </li>
                     <li class="nav-item ml-2">
-                        <a class="nav-link" href="specialists.html">
+                        <a class="nav-link" href={{route('specialists.index')}}>
                             <i class="fas fa-users"></i> Specialists
                         </a>
                     </li>
@@ -55,8 +55,8 @@
                         </a>
                     </li>
                     <li class="nav-item ml-2 ">
-                        <a class="nav-link" href="profiles.html">
-                            <i class="fas fa-user-circle"></i> Profiles
+                        <a class="nav-link" href={{route('employees.index')}}>
+                            <i class="fas fa-user-circle"></i> Employees
                         </a>
                     </li>
                     <li class="nav-item ml-2">
@@ -65,12 +65,12 @@
                         </a>
                     </li>
                     <li class="nav-item ml-2">
-                        <a class="nav-link" href="hardware.html">
+                        <a class="nav-link" href={{route('hardware.index')}}>
                             <i class="fas fa-keyboard"></i> Hardware
                         </a>
                     </li>
                     <li class="nav-item ml-2">
-                            <a class="nav-link" href="hardware.html">
+                            <a class="nav-link" href={{route('software.index')}}>
                                 <i class="fas fa-compact-disc"></i> Software
                             </a>
                         </li>

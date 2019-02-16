@@ -9,7 +9,6 @@ class logs extends Model
     protected $fillable = [
     	'caller',
     	'operator',
-    	'dateTime',
     	'hardwareSN',
     	'OS',
     	'software'

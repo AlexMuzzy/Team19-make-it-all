@@ -2,7 +2,7 @@
 
 @section('content')
     <section>
-        <div class="container">
+        <div class="container-fluid my-5">
             <div class="row no-gutters align-items-center my-5">
                 <div class="col-md-5">
                     <input class="form-control form-control-lg shadow p-3 rounded table-search" type="search"

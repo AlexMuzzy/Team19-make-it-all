@@ -15,39 +15,25 @@
         @endif
         <form method="POST" action="{{route('logs.store')}}">
             @csrf
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputForename">First Name</label>
-                    <input type="text" class="form-control" id="inputForename" name="fname">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="inputSurname">Surname</label>
-                    <input type="text" class="form-control" id="inputSurname" name="sname">
-                </div>
+            <div class="form-group col-md-12">
+                <label for="inputCaller">Caller</label>
+                <input type="text" class="form-control" id="inputCaller" name="caller">
             </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputCategory">Category</label>
-                    <input id="inputCategory" class="form-control" name="category" type="text">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="inputIssue">Issue</label>
-                    <input id="inputIssue" class="form-control" name="issue" type="text">
-                </div>
+            <div class="form-group col-md-12">
+                <label for="inputOperator">Operator</label>
+                <input type="text" class="form-control" id="inputOperator" name="operator">
             </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputPriority">Priority</label>
-                    <input id="inputPriority" class="form-control" name="priority" type="text">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="inputSolved">Solved</label>
-                    <input id="inputSolved" class="form-control" name="solved" type="text">
-                </div>
+            <div class="form-group col-md-12">
+                <label for="inputHardwareSN">Hardware Serial Number</label>
+                <input id="inputHardwareSN" class="form-control" name="hardwareSN" type="text">
             </div>
-            <div class="form-group">
-                <label for="inputDescription">Description</label>
-                <input type="text" class="form-control" id="inputDescription" name="description" >
+            <div class="form-group col-md-12">
+                <label for="inputOS">Operating System</label>
+                <input id="inputOS" class="form-control" name="OS" type="text">
+            </div>
+            <div class="form-group col-md-12">
+                <label for="inputSoftware">Software</label>
+                <input id="inputSoftware" class="form-control" name="software" type="text">
             </div>
             <button type="submit" class="btn btn-lg btn-primary-outline">Submit</button>
         </form>

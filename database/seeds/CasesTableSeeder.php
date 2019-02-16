@@ -18,7 +18,7 @@ class CasesTableSeeder extends Seeder
             'category' => 'hardware',
             'issue' => 'Screen',
             'priority' => 'low',
-            'description' => str_random(160)
+            'summary' => str_random(160)
         ]);
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\logs;
 use Illuminate\Http\Request;
+use DateTime;
 
 class LogsController extends Controller
 {
@@ -14,8 +15,9 @@ class LogsController extends Controller
      */
     public function index()
     {
-        //
-        return view('logs.logs');
+        $logs = logs::all();
+        return view('logs.logs', compact('logs'));
+        //Return logs table view with name of route.
     }
 
     /**
@@ -26,6 +28,7 @@ class LogsController extends Controller
     public function create()
     {
         //
+        return view('logs.new');
     }
 
     /**
@@ -37,6 +40,25 @@ class LogsController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'caller'=>'required',
+            'operator'=> 'required',
+            'hardwareSN' => 'required',
+            'OS' => 'required',
+            'software' => 'required'
+        ]);
+        
+        $now = new DateTime();
+        $log = new logs([
+            'caller' => $request->get('caller'),
+            'operator'=> $request->get('operator'),
+            'hardwareSN'=> $request->get('hardwareSN'),
+            'OS'=> $request->get('OS'),
+            'software' => $request->get('software'),
+        ]);
+
+        $log->save();
+        return redirect()->action('LogsController@index',['Success' => 'Log has been added.']);
     }
 
     /**
