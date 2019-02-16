@@ -44,8 +44,6 @@ class LogsController extends Controller
             'caller'=>'required',
             'operator'=> 'required',
             'hardwareSN' => 'required',
-            'OS' => 'required',
-            'software' => 'required'
         ]);
         
         $now = new DateTime();
