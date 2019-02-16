@@ -17,7 +17,7 @@ class CreateEmployeesTable extends Migration
             $table->increments('id');
             $table->string('employeeID');
             $table->string('fname');
-            $table->dateTime('sname');
+            $table->string('sname');
             $table->string('jobTitle');
             $table->string('department');
             $table->string('telephone');

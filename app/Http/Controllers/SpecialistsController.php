@@ -14,7 +14,9 @@ class SpecialistsController extends Controller
      */
     public function index()
     {
-        //
+        $specialists = specialists::all();
+        return view('specialists.specialists', compact('specialists'));
+        //Return specialists table view with name of route.
     }
 
     /**

@@ -19,6 +19,7 @@
                     <thead>
                         <tr>
                             <th scope="col">Case ID</th>
+                            <th scope="col">Employee ID</th>
                             <th scope="col">First Name</th>
                             <th scope="col">Last Name</th>
                             <th scope="col">Category</th>
@@ -35,6 +36,7 @@
                         @foreach($cases as $case)
                         <tr>
                             <td>{{$case->id}}</td>
+                            <td>{{$case->employeeID}}</td>
                             <td>{{$case->fname}}</td>
                             <td>{{$case->sname}}</td>
                             <td>{{$case->category}}</td>

@@ -14,7 +14,9 @@ class SoftwareController extends Controller
      */
     public function index()
     {
-        //
+        $software = software::all();
+        return view('software.software', compact('software'));
+        //Return software table view with name of route.
     }
 
     /**
