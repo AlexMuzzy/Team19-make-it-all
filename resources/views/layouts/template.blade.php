@@ -104,15 +104,8 @@
         @csrf
     </form>
     <div class="container-fluid my-5">
-        <div class="table-responsive shadow p-3 rounded">
-            <table id="resultsTable" class="table table-hover dataresults">
-                @yield('content')
-            </table>
-        </div>
+        @yield('content')
     </div>
-    <a class="row align-items-right p-3" href={{route($lcname.'.create')}}>
-        <button class="btn btn-lg btn-primary-outline" type="button">{{__('New '.rtrim($lcname, 's'))}}</button>
-    </a>
 </body>
 
 </html>
