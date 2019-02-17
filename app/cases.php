@@ -8,6 +8,7 @@ class cases extends Model
 {
     //
     protected $fillable = [
+        'employeeID',
         'fname',
         'sname',
         'category',
