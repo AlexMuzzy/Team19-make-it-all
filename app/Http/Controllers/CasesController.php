@@ -40,6 +40,7 @@ class CasesController extends Controller
     {
         //
         $request->validate([
+            'employeeID' => 'required',
             'fname'=>'required',
             'sname'=> 'required',
             'category' => 'required',
@@ -49,6 +50,7 @@ class CasesController extends Controller
           ]);
 
           $case = new cases([
+            'employeeID' => $request->get('employeeID'),
             'fname' => $request->get('fname'),
             'sname'=> $request->get('sname'),
             'category'=> $request->get('category'),
@@ -109,7 +111,7 @@ class CasesController extends Controller
         
         $case = Cases::find($id);
         $case->fname=$request->get('fname');
-        $case->sname=$request->get('fname');
+        $case->sname=$request->get('sname');
         $case->category=$request->get('category');
         $case->issue=$request->get('issue');
         $case->priority=$request->get('priority');
