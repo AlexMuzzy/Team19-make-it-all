@@ -18,6 +18,7 @@
                 <thead>
                     <tr>
                         <th scope="col">Software ID</th>
+                        <th scope="col">Vendor</th>
                         <th scope="col">Software</th>
                         <th scope="col">Supported?</th>
                         <th scope="col">Licensed?</th>
@@ -29,6 +30,7 @@
                     @foreach($software as $row)
                     <tr>
                         <td>{{$row->id}}</td>
+                        <td>{{$row->vendor}}</td>
                         <td>{{$row->software}}</td>
                         <td>{{$row['supported'] ? 'Yes' : 'No'}}</td>
                         <td>{{$row['licensed'] ? 'Yes' : 'No'}}</td>

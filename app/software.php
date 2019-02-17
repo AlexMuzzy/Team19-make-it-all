@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class software extends Model
 {
     protected $fillable = [
+        'vendor',
         'software',
         'supported',
         'licensed'

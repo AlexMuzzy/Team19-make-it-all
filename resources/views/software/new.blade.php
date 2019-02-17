@@ -16,6 +16,10 @@
         <form method="POST" action="{{route('software.store')}}">
             @csrf
             <div class="form-group col-md-12">
+                    <label for="inputVendor">Software Vendor</label>
+                    <input type="text" class="form-control" id="inputVendor" name="vendor">
+                </div>
+            <div class="form-group col-md-12">
                 <label for="inputSoftware">Software Name</label>
                 <input type="text" class="form-control" id="inputSoftware" name="software">
             </div>
