@@ -76,7 +76,7 @@
                         </li>
                     <li class="nav-item ml-2 d-sm-block d-md-none">
                         <a class="nav-link" href={{ route('logout') }} onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                            <i class="fas fa-sign-out-alt"></i> {{ __('logout') }}
+                            <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}
                         </a>
                     </li>
                 </ul>
@@ -88,7 +88,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbar-main-dropdown" data-toggle="dropdown"></a>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href={{ route('logout') }} onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('logout') }}</a>
+                            <a class="dropdown-item" href={{ route('logout') }} onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
                         </div>
                     </li>
                 </ul>
