@@ -3,6 +3,7 @@
     if (strpos($name, '.')){
         $name = substr($name, 0, strpos($name, '.'));
     }
+    $lcname = strtolower($name);
 ?>
 
 <!DOCTYPE html>
@@ -20,6 +21,9 @@
         crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href={{asset('css/template.css')}} rel="stylesheet">
+    <script src={{asset('js/search.js')}}></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
     <script>
         (document).ready(function () {
             $enable - shadows;
@@ -70,10 +74,10 @@
                         </a>
                     </li>
                     <li class="nav-item ml-2">
-                            <a class="nav-link" href={{route('software.index')}}>
-                                <i class="fas fa-compact-disc"></i> Software
-                            </a>
-                        </li>
+                        <a class="nav-link" href={{route('software.index')}}>
+                            <i class="fas fa-compact-disc"></i> Software
+                        </a>
+                    </li>
                     <li class="nav-item ml-2 d-sm-block d-md-none">
                         <a class="nav-link" href={{ route('logout') }} onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}
@@ -88,7 +92,8 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbar-main-dropdown" data-toggle="dropdown"></a>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href={{ route('logout') }} onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                            <a class="dropdown-item" href={{ route('logout') }} onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{
+                                __('Logout') }}</a>
                         </div>
                     </li>
                 </ul>
@@ -98,7 +103,16 @@
     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
         @csrf
     </form>
-    @yield('content')
+    <div class="container-fluid my-5">
+        <div class="table-responsive shadow p-3 rounded">
+            <table id="resultsTable" class="table table-hover dataresults">
+                @yield('content')
+            </table>
+        </div>
+    </div>
+    <a class="row align-items-right p-3" href={{route($lcname.'.create')}}>
+        <button class="btn btn-lg btn-primary-outline" type="button">{{__('New '.rtrim($lcname, 's'))}}</button>
+    </a>
 </body>
 
 </html>
