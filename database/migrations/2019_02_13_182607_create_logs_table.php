@@ -20,6 +20,7 @@ class CreateLogsTable extends Migration
             $table->string('hardwareSN');
             $table->string('OS');
             $table->string('software');
+            $table->string('reason');
             $table->timestamps();
         });
     }

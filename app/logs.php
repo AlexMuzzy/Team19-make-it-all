@@ -11,7 +11,8 @@ class logs extends Model
     	'operator',
     	'hardwareSN',
     	'OS',
-    	'software'
+    	'software',
+        'reason'
     ];
 
     public function setOSAttribute($value)
