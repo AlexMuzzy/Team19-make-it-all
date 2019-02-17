@@ -15,6 +15,7 @@ class CreateHardwareTable extends Migration
     {
         Schema::create('hardware', function (Blueprint $table) {
             $table->increments('id');
+            $table->text('hardware');
             $table->string('hardwareSN');
             $table->string('type');
             $table->string('vendor');

@@ -18,6 +18,7 @@ class CreateSoftwareTable extends Migration
             $table->string('software');
             $table->boolean('supported')->default(false);
             $table->boolean('licensed')->default(true);
+            $table->string('vendor');
             $table->timestamps();
         });
     }

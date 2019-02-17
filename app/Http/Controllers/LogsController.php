@@ -76,9 +76,12 @@ class LogsController extends Controller
      * @param  \App\logs  $logs
      * @return \Illuminate\Http\Response
      */
-    public function edit(logs $logs)
+    public function edit($id)
     {
         //
+        $log = logs::find($id);
+
+        return view('logs.edit', compact('log'));
     }
 
     /**
@@ -88,9 +91,22 @@ class LogsController extends Controller
      * @param  \App\logs  $logs
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, logs $logs)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'caller'=>'required',
+            'operator'=> 'required',
+            'hardwareSN' => 'required',
+        ]);
+        $log = logs::find($id);
+            $log->caller=$request->get('caller');
+            $log->operator=$request->get('operator');
+            $log->hardwareSN=$request->get('hardwareSN');
+            $log->OS=$request->get('OS');
+            $log->software=$request->get('software');
+
+        $log->save();
+        return redirect()->action('LogsController@index',['Success' => 'Log has been added.']);
     }
 
     /**
@@ -99,8 +115,12 @@ class LogsController extends Controller
      * @param  \App\logs  $logs
      * @return \Illuminate\Http\Response
      */
-    public function destroy(logs $logs)
+    public function destroy($id)
     {
         //
+        $log = logs::find($id);
+        $log->delete();
+
+        return redirect()->action('LogsController@index',['Success' => 'Log has been deleted.']);
     }
 }

@@ -14,13 +14,13 @@ class software extends Model
 
     public function setsupportedAttribute($value)
     {
-            $this->attributes['software'] = ($value=='Yes')?($value=1):
+            $this->attributes['supported'] = ($value=='Yes')?($value=1):
             ($value=0);
     }
 
     public function setlicensedAttribute($value)
     {
-            $this->attributes['licenseds'] = ($value=='Yes')?($value=1):
+            $this->attributes['licensed'] = ($value=='Yes')?($value=1):
             ($value=0);
     }
 }

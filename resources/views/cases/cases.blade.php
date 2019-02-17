@@ -1,3 +1,5 @@
+
+
 @extends('layouts.template')
 
 @section('content')
@@ -43,7 +45,7 @@
                             <td>{{$case->issue}}</td>
                             <td>{{$case->priority}}</td>
                             <td>{{$case->summary}}</td>
-                            <td>{{$case->solved}}</td>
+                            <td>{{$case['solved'] ? 'Yes' : 'No'}}</td>
                             <td>
                                 <a href={{route('cases.edit', $case->id)}} class="btn btn-primary-outline">Edit</a>
                             </td>
