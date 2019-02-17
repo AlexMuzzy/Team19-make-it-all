@@ -47,8 +47,8 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="inputDescription">Description</label>
-                <input type="text" class="form-control" id="inputDescription" name="description" value={{ $case->description }}>
+                <label for="inputSummary">Summary</label>
+                <input type="text" class="form-control" id="inputSummary" name="summary" value={{ $case->summary }}>
             </div>
             <button type="submit" class="btn btn-lg btn-primary-outline">Edit</button>
         </form>

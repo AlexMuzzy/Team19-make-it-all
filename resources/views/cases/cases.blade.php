@@ -1,8 +1,10 @@
+
+
 @extends('layouts.template')
 
 @section('content')
     <section>
-        <div class="container">
+        <div class="container-fluid my-5">
             <div class="row no-gutters align-items-center my-5">
                 <div class="col-md-5">
                     <input class="form-control form-control-lg shadow p-3 rounded table-search" type="search"
@@ -19,6 +21,7 @@
                     <thead>
                         <tr>
                             <th scope="col">Case ID</th>
+                            <th scope="col">Employee ID</th>
                             <th scope="col">First Name</th>
                             <th scope="col">Last Name</th>
                             <th scope="col">Category</th>
@@ -35,13 +38,14 @@
                         @foreach($cases as $case)
                         <tr>
                             <td>{{$case->id}}</td>
+                            <td>{{$case->employeeID}}</td>
                             <td>{{$case->fname}}</td>
                             <td>{{$case->sname}}</td>
                             <td>{{$case->category}}</td>
                             <td>{{$case->issue}}</td>
                             <td>{{$case->priority}}</td>
                             <td>{{$case->summary}}</td>
-                            <td>{{$case->solved}}</td>
+                            <td>{{$case['solved'] ? 'Yes' : 'No'}}</td>
                             <td>
                                 <a href={{route('cases.edit', $case->id)}} class="btn btn-primary-outline">Edit</a>
                             </td>

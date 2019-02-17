@@ -15,6 +15,8 @@ class EmployeesController extends Controller
     public function index()
     {
         //
+        $employees = employees::all();
+        return view('employees.employees', compact('employees'));
     }
 
     /**
@@ -25,6 +27,7 @@ class EmployeesController extends Controller
     public function create()
     {
         //
+        return view('employees.new');
     }
 
     /**
@@ -36,6 +39,24 @@ class EmployeesController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'fname'=>'required',
+            'sname'=> 'required',
+            'jobTitle' => 'required',
+            'department' => 'required',
+            'telephone' => 'required'
+        ]);
+        
+        $row = new employees([
+            'fname' => $request->get('fname'),
+            'sname'=> $request->get('sname'),
+            'jobTitle'=> $request->get('jobTitle'),
+            'department'=> $request->get('department'),
+            'telephone' => $request->get('telephone')
+        ]);
+
+        $row->save();
+        return redirect()->action('EmployeesController@index',['Success' => 'Employee has been added.']);
     }
 
     /**
@@ -55,9 +76,12 @@ class EmployeesController extends Controller
      * @param  \App\employees  $employees
      * @return \Illuminate\Http\Response
      */
-    public function edit(employees $employees)
+    public function edit($id)
     {
         //
+        $employee = employees::find($id);
+
+        return view('employees.edit', compact('employee'));
     }
 
     /**
@@ -67,9 +91,26 @@ class EmployeesController extends Controller
      * @param  \App\employees  $employees
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, employees $employees)
+    public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'fname'=>'required',
+            'sname'=> 'required',
+            'jobTitle' => 'required',
+            'department' => 'required',
+            'telephone' => 'required'
+        ]);
+        
+        $employee = employees::find($id);
+        $employee->fname=$request->get('fname');
+        $employee->sname=$request->get('sname');
+        $employee->jobTitle=$request->get('jobTitle');
+        $employee->department=$request->get('department');
+        $employee->telephone=$request->get('telephone');
+        $employee->save();
+
+        return redirect()->action('EmployeesController@index',['Success' => 'Employee has been updated.']);
     }
 
     /**

@@ -16,11 +16,15 @@
         <form method="POST" action="{{route('cases.store')}}">
             @csrf
             <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputForename">First Name</label>
+                <div class="form-group col-md-4">
+                    <label for="inputForename">Employee ID</label>
                     <input type="text" class="form-control" id="inputForename" name="fname">
                 </div>
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-4">
+                    <label for="inputSurname">First Name</label>
+                    <input type="text" class="form-control" id="inputSurname" name="sname">
+                </div>
+                <div class="form-group col-md-4">
                     <label for="inputSurname">Surname</label>
                     <input type="text" class="form-control" id="inputSurname" name="sname">
                 </div>
@@ -46,8 +50,8 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="inputDescription">Description</label>
-                <input type="text" class="form-control" id="inputDescription" name="description">
+                <label for="inputSummary">Summary</label>
+                <input type="text" class="form-control" id="inputSummary" name="summary">
             </div>
             <button type="submit" class="btn btn-lg btn-primary-outline">Submit</button>
         </form>

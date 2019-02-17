@@ -45,18 +45,19 @@ class CasesController extends Controller
             'category' => 'required',
             'issue' => 'required',
             'priority' => 'required',
-            'description' => 'required'
-
+            'summary' => 'required'
           ]);
+
           $case = new cases([
             'fname' => $request->get('fname'),
             'sname'=> $request->get('sname'),
             'category'=> $request->get('category'),
             'issue'=> $request->get('issue'),
             'priority'=> $request->get('priority'),
-            'description' => $request->get('description'),
+            'summary' => $request->get('summary'),
             'solved' => $request->get('solved')
           ]);
+
           $case->save();
           return redirect()->action('CasesController@index',['Success' => 'Case has been added.']);
     }
@@ -103,7 +104,7 @@ class CasesController extends Controller
             'issue' => 'required',
             'priority' => 'required',
             'solved' => 'required',
-            'description' => 'required'
+            'summary' => 'required'
         ]);
         
         $case = Cases::find($id);
@@ -113,7 +114,7 @@ class CasesController extends Controller
         $case->issue=$request->get('issue');
         $case->priority=$request->get('priority');
         $case->solved=$request->get('solved');
-        $case->description=$request->get('description');
+        $case->summary=$request->get('summary');
         
         $case->save();
 

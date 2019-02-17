@@ -21,3 +21,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::Resource('cases', 'CasesController');
 Route::Resource('logs', 'LogsController');
+Route::Resource('hardware', 'HardwareController');
+Route::Resource('software', 'SoftwareController');
+Route::Resource('employees', 'EmployeesController');
+Route::Resource('specialists', 'SpecialistsController');

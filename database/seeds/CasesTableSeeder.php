@@ -13,12 +13,13 @@ class CasesTableSeeder extends Seeder
     {
         //
         DB::table('cases')->insert([
+            'employeeID' => 0,
             'fname' => str_random(5),
             'sname' => str_random(5),
             'category' => 'hardware',
             'issue' => 'Screen',
             'priority' => 'low',
-            'description' => str_random(160)
+            'summary' => str_random(10)
         ]);
     }
 }

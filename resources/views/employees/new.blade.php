@@ -13,27 +13,27 @@
         </div>
         <br />
         @endif
-        <form method="POST" action="{{route('logs.store')}}">
+        <form method="POST" action="{{route('employees.store')}}">
             @csrf
             <div class="form-group col-md-12">
-                <label for="inputCaller">Caller</label>
-                <input type="text" class="form-control" id="inputCaller" name="caller">
+                <label for="inputFname">Forename</label>
+                <input id="inputFname" class="form-control" name="fname" type="text">
             </div>
             <div class="form-group col-md-12">
-                <label for="inputOperator">Operator</label>
-                <input type="text" class="form-control" id="inputOperator" name="operator">
+                <label for="inputSurname">Surname</label>
+                <input type="text" class="form-control" id="inputSurname" name="sname">
             </div>
             <div class="form-group col-md-12">
-                <label for="inputHardwareSN">Hardware Serial Number</label>
-                <input id="inputHardwareSN" class="form-control" name="hardwareSN" type="text">
+                <label for="inputJobTitle">Job Title</label>
+                <input id="inputJobTitle" class="form-control" name="jobTitle" type="text">
             </div>
             <div class="form-group col-md-12">
-                <label for="inputOS">Operating System</label>
-                <input id="inputOS" class="form-control" name="OS" type="text">
+                <label for="inputDepartment">Department</label>
+                <input id="inputDepartment" class="form-control" name="department" type="text">
             </div>
             <div class="form-group col-md-12">
-                <label for="inputSoftware">Software</label>
-                <input id="inputSoftware" class="form-control" name="software" type="text">
+                <label for="inputTelephone">Telephone</label>
+                <input id="inputTelephone" class="form-control" name="telephone" type="text">
             </div>
             <button type="submit" class="btn btn-lg btn-primary-outline">Submit</button>
         </form>

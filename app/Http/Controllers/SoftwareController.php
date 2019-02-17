@@ -14,7 +14,9 @@ class SoftwareController extends Controller
      */
     public function index()
     {
-        //
+        $software = software::all();
+        return view('software.software', compact('software'));
+        //Return software table view with name of route.
     }
 
     /**
@@ -25,6 +27,7 @@ class SoftwareController extends Controller
     public function create()
     {
         //
+        return view('software.new');
     }
 
     /**
@@ -36,6 +39,22 @@ class SoftwareController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'vendor'=>'required',
+            'software'=>'required',
+            'licensed'=> 'required',
+            'supported' => 'required'
+        ]);
+        
+        $row = new software([
+            'vendor' => $request->get('vendor'),
+            'software' => $request->get('software'),
+            'licensed'=> $request->get('licensed'),
+            'supported'=> $request->get('supported')
+        ]);
+
+        $row->save();
+        return redirect()->action('SoftwareController@index',['Success' => 'Software has been added.']);
     }
 
     /**
@@ -55,9 +74,11 @@ class SoftwareController extends Controller
      * @param  \App\software  $software
      * @return \Illuminate\Http\Response
      */
-    public function edit(software $software)
+    public function edit($id)
     {
         //
+        $software = software::find($id);
+        return view('software.edit', compact('software'));
     }
 
     /**
@@ -67,9 +88,22 @@ class SoftwareController extends Controller
      * @param  \App\software  $software
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, software $software)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'vendor'=>'required',
+            'software'=>'required',
+            'licensed'=> 'required',
+            'supported' => 'required'
+        ]);
+        $row = software::find($id);
+        $row->vendor=$request->get('vendor');
+        $row->software=$request->get('software');
+        $row->supported=$request->get('supported');
+        $row->licensed=$request->get('licensed');
+
+        $row->save();
+        return redirect()->action('SoftwareController@index',['Success' => 'Software has been added.']);
     }
 
     /**
@@ -78,8 +112,12 @@ class SoftwareController extends Controller
      * @param  \App\software  $software
      * @return \Illuminate\Http\Response
      */
-    public function destroy(software $software)
+    public function destroy($id)
     {
         //
+        $row = software::find($id);
+        $row->delete();
+
+        return redirect()->action('SoftwareController@index',['Success' => 'Software has been deleted.']);
     }
 }

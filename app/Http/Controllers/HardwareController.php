@@ -15,6 +15,8 @@ class HardwareController extends Controller
     public function index()
     {
         //
+        $hardware = hardware::all();
+        return view('hardware.hardware', compact('hardware'));
     }
 
     /**
@@ -25,6 +27,7 @@ class HardwareController extends Controller
     public function create()
     {
         //
+        return view('hardware.new');
     }
 
     /**
@@ -35,7 +38,23 @@ class HardwareController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+            'hardware'=>'required',
+            'hardwareSN'=> 'required',
+            'type' => 'required',
+            'vendor' => 'required'
+        ]);
+        
+        $row = new hardware([
+            'hardware' => $request->get('hardware'),
+            'hardwareSN'=> $request->get('hardwareSN'),
+            'type'=> $request->get('type'),
+            'vendor'=> $request->get('vendor')
+        ]);
+
+        $row->save();
+        return redirect()->action('HardwareController@index',['Success' => 'Hardware has been added.']);
     }
 
     /**
@@ -55,9 +74,12 @@ class HardwareController extends Controller
      * @param  \App\hardware  $hardware
      * @return \Illuminate\Http\Response
      */
-    public function edit(hardware $hardware)
+    public function edit($id)
     {
         //
+        $hardware = hardware::find($id);
+
+        return view('hardware.edit', compact('hardware'));
     }
 
     /**
@@ -67,9 +89,23 @@ class HardwareController extends Controller
      * @param  \App\hardware  $hardware
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, hardware $hardware)
+    public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'hardware'=>'required',
+            'hardwareSN'=>'required',
+            'type'=> 'required',
+            'vendor' => 'required'
+        ]);
+        $row = hardware::find($id);
+        $row->hardware=$request->get('hardware');
+        $row->hardwareSN=$request->get('hardwareSN');
+        $row->type=$request->get('type');
+        $row->vendor=$request->get('vendor');
+
+        $row->save();
+        return redirect()->action('HardwareController@index',['Success' => 'Hardware has been added.']);
     }
 
     /**
@@ -78,8 +114,12 @@ class HardwareController extends Controller
      * @param  \App\hardware  $hardware
      * @return \Illuminate\Http\Response
      */
-    public function destroy(hardware $hardware)
+    public function destroy($id)
     {
         //
+        $hardware = hardware::find($id);
+        $hardware->delete();
+
+        return redirect()->action('hardwareController@index',['Success' => 'hardware has been deleted.']);
     }
 }
