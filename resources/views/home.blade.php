@@ -53,7 +53,7 @@
     var sptChart = new Chart(ctx, {
         type: 'doughnut',
         data: {
-            labels: ["Hardware", "Software"],
+            labels: labelles,
             datasets: [{
                 data: counter,
                 backgroundColor: ["#03a9f4", "#00bcd4", "#ffc107", "#e91e63", "#4caf50"],
@@ -65,7 +65,7 @@
     var sppChart = new Chart(ctx, {
         type: 'doughnut',
         data: {
-            labels: ["Hardware", "Software"],
+            labels: labelles,
             datasets: [{
                 data: counter,
                 backgroundColor: ["#03a9f4", "#00bcd4", "#ffc107", "#e91e63", "#4caf50"],
