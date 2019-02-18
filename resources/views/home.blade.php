@@ -25,7 +25,7 @@
     </div>
     <div class="container">
         <div class="row d-flex">
-            <div class="col-lg-7">
+            <div class="col-lg-6">
                 <div class="card">
                     <div class="card-header border-0">Specific Problem Type
                     </div>
@@ -35,6 +35,16 @@
                     </div>
                 </div>
             </div>
+            <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header border-0">Specific Problem Type
+                        </div>
+                        <p class="mx-3">A pie chart visualising the percentage of problems that belong to a specific problem type</p>
+                        <div class="card-body">
+                            <canvas id="s-p-p" height="150"></canvas>
+                        </div>
+                    </div>
+                </div>
         </div>
     </div>
 </section>
@@ -43,7 +53,19 @@
     var sptChart = new Chart(ctx, {
         type: 'doughnut',
         data: {
-            labels: labelles,
+            labels: ["Hardware", "Software"],
+            datasets: [{
+                data: counter,
+                backgroundColor: ["#03a9f4", "#00bcd4", "#ffc107", "#e91e63", "#4caf50"],
+                borderWidth: 1
+            }]
+        },
+    });
+    var ctx = document.getElementById("s-p-p")
+    var sppChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ["Hardware", "Software"],
             datasets: [{
                 data: counter,
                 backgroundColor: ["#03a9f4", "#00bcd4", "#ffc107", "#e91e63", "#4caf50"],
