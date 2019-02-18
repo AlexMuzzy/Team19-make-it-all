@@ -59,17 +59,17 @@ class CasesController extends Controller
                 if ($request->get('category') == 'Hardware'){
                     $data = DB::table('specialists')
                     ->where('hardwareExpert','=',1)
-                    ->orderBy('assignedCases', 'desc')
+                    ->orderBy('assignedCases', 'asc')
                     ->first();
                 } else if ($request->get('category') == 'Software'){
                     $data = DB::table('specialists')
                     ->where('softwareExpert','=',1)
-                    ->orderBy('assignedCases', 'desc')
+                    ->orderBy('assignedCases', 'asc')
                     ->first();
                 } else if ($request->get('category') == 'Networking'){
                     $data = DB::table('specialists')
                     ->where('networkExpert','=',1)
-                    ->orderBy('assignedCases', 'desc')
+                    ->orderBy('assignedCases', 'asc')
                     ->first();
                 }
                 $assignedToVal = $data->id;

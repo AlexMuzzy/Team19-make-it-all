@@ -5,7 +5,7 @@
 <div class="container">
     @foreach ($userdetails as $user)
     <div class="shadow p-3 rounded font-weight-bold m-4">
-        <h5>{{ $user->fname }} {{ $user->sname }}</h5>
+        <h5>ID: {{ $user->id }} {{ $user->fname }} {{ $user->sname }}</h5>
         <div class="row">
             <div class="col-3">
                 @if ($user->hardwareExpert == 1)
