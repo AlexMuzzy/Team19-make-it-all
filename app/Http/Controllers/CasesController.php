@@ -72,12 +72,13 @@ class CasesController extends Controller
                     ->orderBy('assignedCases', 'desc')
                     ->first();
                 }
+                $assignedToVal = $data->id;
+                $specialist = specialists::find($assignedToVal);
+                $newval = $specialist->assignedCases;
+                $specialist->assignedCases=$newval+1;
+                $specialist->save();
             }
-        $assignedToVal = $data->id;
-        $specialist = specialists::find($assignedToVal);
-        $newval = $specialist->assignedCases;
-        $specialist->assignedCases=$newval+1;
-        $specialist->save();
+
 
         $case = new cases([
         'employeeID' => $request->get('employeeID'),
