@@ -56,6 +56,16 @@
                             <form method="POST" action={{route('cases.update', $case->id)}}>
                                 @csrf
                                 @method('PATCH')
+                                @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                                <br />
+                                @endif
                                 <div class="modal-body">
                                     <div class="form-row">
                                         <div class="form-group col-md-4">
@@ -110,15 +120,16 @@
                                         <div class="form-group col-md-4">
                                             <label for="inputSolved">Solved</label>
                                             <select id="inputSolved" class="form-control" name="solved" value="{{ $case->solved }}">
-                                                <option value="Yes" @if(($case->priority) == '1') selected @endif
+                                                <option value="Yes" @if(($case->solved) == '1') selected @endif
                                                     >Yes</option>
-                                                <option value="No" @if(($case->priority) == '0') selected @endif
+                                                <option value="No" @if(($case->solved) == '0') selected @endif
                                                     >No</option>
                                             </select>
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="inputAssigned">Assigned To</label>
-                                            <input id="inputAssigned" text="text" class="form-control" name="assignedTo" value="{{ $case->assignedTo }}" readonly>
+                                            <input id="inputAssigned" text="text" class="form-control" name="assignedTo"
+                                                value="{{ $case->assignedTo }}" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -127,7 +138,8 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="inputSolvedText">Solved Explanation</label>
-                                        <textarea type="text" class="form-control" id="inputSolvedText" name="solvedtext" value="{{ $case->solvedtext }}"></textarea>
+                                        <textarea type="text" class="form-control" id="inputSolvedText" name="solvedtext"
+                                            value="{{ $case->solvedtext }}"></textarea>
                                     </div>
                                 </div>
                                 <div class="modal-footer">

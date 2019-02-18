@@ -128,7 +128,11 @@ class CasesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $text = '';
+        if($request->get('solved')){
+            $text = 'required';
+        }
+
         $request->validate([
             'employeeID' => 'required',
             'fname'=>'required',
@@ -137,8 +141,18 @@ class CasesController extends Controller
             'issue' => 'required',
             'priority' => 'required',
             'solved' => 'required',
-            'summary' => 'required'
+            'summary' => 'required',
+            'solvedtext' => $text
         ]);
+
+        if ($case->solved == 0){
+            if($request->get('solved')){
+                $data = DB::table('specialists')
+                    ->where('hardwareExpert','=',1)
+                    ->orderBy('assignedCases', 'asc')
+                    ->first();
+            }
+        }
         
         $case = Cases::find($id);
         $case->employeeID=$request->get('employeeID');
