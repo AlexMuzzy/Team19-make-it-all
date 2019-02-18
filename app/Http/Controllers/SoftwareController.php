@@ -91,13 +91,11 @@ class SoftwareController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'vendor'=>'required',
             'software'=>'required',
             'licensed'=> 'required',
             'supported' => 'required'
         ]);
         $row = software::find($id);
-        $row->vendor=$request->get('vendor');
         $row->software=$request->get('software');
         $row->supported=$request->get('supported');
         $row->licensed=$request->get('licensed');

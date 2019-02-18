@@ -16,6 +16,10 @@
         <form method="POST" action="{{route('logs.store')}}">
             @csrf
             <div class="form-group col-md-12">
+                <label for="inputCaseID">Case ID</label>
+                <input type="text" class="form-control" id="inputCaseID" name="caseid">
+            </div>
+            <div class="form-group col-md-12">
                 <label for="inputCaller">Caller</label>
                 <input type="text" class="form-control" id="inputCaller" name="caller">
             </div>
@@ -34,6 +38,10 @@
             <div class="form-group col-md-12">
                 <label for="inputSoftware">Software</label>
                 <input id="inputSoftware" class="form-control" name="software" type="text">
+            </div>
+            <div class="form-group col-md-12">
+                <label for="inputReason">Reason</label>
+                <input id="inputReason" class="form-control" name="reason" type="text">
             </div>
             <button type="submit" class="btn btn-lg btn-primary-outline">Submit</button>
         </form>

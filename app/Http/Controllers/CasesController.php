@@ -84,9 +84,6 @@ class CasesController extends Controller
     public function edit($id)
     {
         //
-        $case = Cases::find($id);
-
-        return view('cases.edit', compact('case'));
     }
 
     /**
@@ -100,6 +97,7 @@ class CasesController extends Controller
     {
         //
         $request->validate([
+            'employeeID' => 'required',
             'fname'=>'required',
             'sname'=> 'required',
             'category' => 'required',
@@ -110,6 +108,7 @@ class CasesController extends Controller
         ]);
         
         $case = Cases::find($id);
+        $case->employeeID=$request->get('employeeID');
         $case->fname=$request->get('fname');
         $case->sname=$request->get('sname');
         $case->category=$request->get('category');

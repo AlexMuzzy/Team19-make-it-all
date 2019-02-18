@@ -61,16 +61,17 @@
                                 <i class="fas fa-phone"></i> Call Logs
                             </a>
                         </li>
-                        <li class="nav-item ml-2 ">
-                            <a class="nav-link" href={{route('employees.index')}}>
-                                <i class="fas fa-user-circle"></i> Employees
-                            </a>
-                        </li>
                         <li class="nav-item ml-2">
                             <a class="nav-link" href={{route('cases.index')}}>
                                 <i class="fas fa-clipboard"></i> Cases
                             </a>
                         </li>
+                        <li class="nav-item ml-2 ">
+                            <a class="nav-link" href={{route('employees.index')}}>
+                                <i class="fas fa-user-circle"></i> Employees
+                            </a>
+                        </li>
+
                         <li class="nav-item ml-2">
                             <a class="nav-link" href={{route('hardware.index')}}>
                                 <i class="fas fa-keyboard"></i> Hardware

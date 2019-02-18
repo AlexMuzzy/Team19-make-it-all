@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class logs extends Model
 {
     protected $fillable = [
+        'caseid',
     	'caller',
     	'operator',
     	'hardwareSN',

@@ -41,18 +41,22 @@ class LogsController extends Controller
     {
         //
         $request->validate([
+            'caseid' => 'required',
             'caller'=>'required',
             'operator'=> 'required',
             'hardwareSN' => 'required',
+            'reason' => 'required'
         ]);
         
         $now = new DateTime();
         $log = new logs([
+            'caseid' => $request->get('caseid'),
             'caller' => $request->get('caller'),
             'operator'=> $request->get('operator'),
             'hardwareSN'=> $request->get('hardwareSN'),
             'OS'=> $request->get('OS'),
             'software' => $request->get('software'),
+            'reason' => $request->get('reason')
         ]);
 
         $log->save();
@@ -79,9 +83,6 @@ class LogsController extends Controller
     public function edit($id)
     {
         //
-        $log = logs::find($id);
-
-        return view('logs.edit', compact('log'));
     }
 
     /**
@@ -94,16 +95,20 @@ class LogsController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
+            'caseid' => 'required',
             'caller'=>'required',
             'operator'=> 'required',
             'hardwareSN' => 'required',
+            'reason' => 'required'
         ]);
         $log = logs::find($id);
+            $log->caseid=$request->get('caseid');
             $log->caller=$request->get('caller');
             $log->operator=$request->get('operator');
             $log->hardwareSN=$request->get('hardwareSN');
             $log->OS=$request->get('OS');
             $log->software=$request->get('software');
+            $log->reason=$request->get('reason');
 
         $log->save();
         return redirect()->action('LogsController@index',['Success' => 'Log has been added.']);

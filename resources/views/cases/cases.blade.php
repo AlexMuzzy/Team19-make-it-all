@@ -14,8 +14,7 @@
                     <th scope="col">Issue</th>
                     <th scope="col">Priority</th>
                     <th scope="col">Solved</th>
-                    <th scope="col">View</th>
-                    <th scope="col">Edit</th>
+                    <th scope="col">View & Edit</th>
                     <th scope="col">Delete</th>
 
                 </tr>
@@ -43,10 +42,7 @@
                     <td>{!! $case['solved'] ? '<i class="fas fa-check"></i>' : '<i class="fas fa-times"></i>' !!}
                     </td>
                     <td>
-                        <a href={{route('cases.edit', $case->id)}} class="btn btn-primary-outline">Edit</a>
-                    </td>
-                    <td>
-                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#formModal{{ $case->id }}"
+                        <button type="button" class="btn btn-primary-outline" data-toggle="modal" data-target="#formModal{{ $case->id }}"
                             data-value="{{$case->id}}">View</button>
                     </td>
                     <td>
@@ -61,7 +57,7 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title">Case {{ $case->id }}</h5>
+                                <h5 class="modal-title">Case ID: {{ $case->id }}</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -136,7 +132,7 @@
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                    <button type="submit" class="btn btn-primary-outline">Save changes</button>
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                 </div>
                             </form>
