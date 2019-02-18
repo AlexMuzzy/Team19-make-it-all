@@ -16,6 +16,7 @@ class cases extends Model
         'priority',
         'summary',
         'solved',
+        'assignedTo',
         'solvedtext'
     ];
 

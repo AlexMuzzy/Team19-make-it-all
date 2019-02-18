@@ -24,6 +24,7 @@ class CreateCasesTable extends Migration
             $table->text('summary');
             $table->boolean('solved')->default(false);
             $table->text('solvedtext');
+            $table->integer('assignedTo');
             $table->timestamps();
         });
     }

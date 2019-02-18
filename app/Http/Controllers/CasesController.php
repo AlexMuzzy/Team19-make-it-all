@@ -3,7 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\cases;
+use App\specialists;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use DB;
+use App\User;
+
 
 class CasesController extends Controller
 {
@@ -47,22 +52,48 @@ class CasesController extends Controller
             'issue' => 'required',
             'priority' => 'required',
             'summary' => 'required'
-          ]);
+        ]);
+            $assignedToVal = 0;
+            $specialist = new specialists([]);
+            if($request->get('solved') == 'No'){
+                if ($request->get('category') == 'Hardware'){
+                    $data = DB::table('specialists')
+                    ->where('hardwareExpert','=',1)
+                    ->orderBy('assignedCases', 'desc')
+                    ->first();
+                } else if ($request->get('category') == 'Software'){
+                    $data = DB::table('specialists')
+                    ->where('softwareExpert','=',1)
+                    ->orderBy('assignedCases', 'desc')
+                    ->first();
+                } else if ($request->get('category') == 'Networking'){
+                    $data = DB::table('specialists')
+                    ->where('networkExpert','=',1)
+                    ->orderBy('assignedCases', 'desc')
+                    ->first();
+                }
+            }
+        $assignedToVal = $data->id;
+        $specialist = specialists::find($assignedToVal);
+        $newval = $specialist->assignedCases;
+        $specialist->assignedCases=$newval+1;
+        $specialist->save();
 
-          $case = new cases([
-            'employeeID' => $request->get('employeeID'),
-            'fname' => $request->get('fname'),
-            'sname'=> $request->get('sname'),
-            'category'=> $request->get('category'),
-            'issue'=> $request->get('issue'),
-            'priority'=> $request->get('priority'),
-            'summary' => $request->get('summary'),
-            'solved' => $request->get('solved'),
-            'solvedtext' => $request->get('solvedtext')
-          ]);
+        $case = new cases([
+        'employeeID' => $request->get('employeeID'),
+        'fname' => $request->get('fname'),
+        'sname'=> $request->get('sname'),
+        'category'=> $request->get('category'),
+        'issue'=> $request->get('issue'),
+        'priority'=> $request->get('priority'),
+        'summary' => $request->get('summary'),
+        'solved' => $request->get('solved'),
+        'solvedtext' => $request->get('solvedtext'),
+        'assignedTo' => $assignedToVal
+        ]);
 
-          $case->save();
-          return redirect()->action('CasesController@index',['Success' => 'Case has been added.']);
+        $case->save();
+        return redirect()->action('CasesController@index',['Success' => 'Case has been added.']);
     }
 
     /**
@@ -117,7 +148,7 @@ class CasesController extends Controller
         $case->priority=$request->get('priority');
         $case->solved=$request->get('solved');
         $case->summary=$request->get('summary');
-        
+        $case->summary=$request->get('assignedTo');
         $case->save();
 
         return redirect()->action('CasesController@index',['Success' => 'Case has been updated.']);
