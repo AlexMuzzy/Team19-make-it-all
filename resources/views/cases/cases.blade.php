@@ -105,7 +105,7 @@
                                         </div>
                                     </div>
                                     <div class="form-row">
-                                        <div class="form-group col-md-6">
+                                        <div class="form-group col-md-4">
                                             <label for="inputPriority">Priority</label>
                                             <select id="inputPriority" class="form-control" name="priority">
                                                 <option value="1" @if(($case->priority) == '1') selected @endif
@@ -116,7 +116,7 @@
                                                     >Urgent</option>
                                             </select>
                                         </div>
-                                        <div class="form-group col-md-6">
+                                        <div class="form-group col-md-4">
                                             <label for="inputSolved">Solved</label>
                                             <select id="inputSolved" class="form-control" name="solved" value="{{ $case->solved }}">
                                                 <option value="Yes" @if(($case->priority) == '1') selected @endif
@@ -124,6 +124,10 @@
                                                 <option value="No" @if(($case->priority) == '0') selected @endif
                                                     >No</option>
                                             </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="inputAssigned">Assigned To</label>
+                                            <input id="inputAssigned" text="text" class="form-control" name="assignedTo" value="{{ $case->assignedTo }}">
                                         </div>
                                     </div>
                                     <div class="form-group">
