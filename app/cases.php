@@ -15,7 +15,8 @@ class cases extends Model
         'issue',
         'priority',
         'summary',
-        'solved'
+        'solved',
+        'solvedtext'
     ];
 
     public function setSolvedAttribute($value)

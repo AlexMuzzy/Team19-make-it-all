@@ -1,77 +1,87 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Make-it-all Helpdesk Login</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css" rel="stylesheet"
+        media="screen,projection" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="{{asset('css/login.css')}}" type="text/css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+</head>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
+<body>
+    <div class="login">
+        <div class="row">
+            <div class="col m6 push-m6 col-respons">
+                <div class="row m-gradient full-page z-depth-3">
+                    <div class="icon-aligner center">
+                        <i class="material-icons d1">build</i>
+                    </div>
+                </div>
+            </div>
+            <div class="col m6 pull-m6">
+                <div class="container">
+                    <div class="aligner">
+                        <div class="row">
 
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
-
-                                @if ($errors->has('name'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
+                            <span class="title">Register</span>
+                            <div class="subtitle">
+                                <span class="subtitle">Please enter your details to register a new specialist.</span>
                             </div>
+
                         </div>
+                        <div class="row">
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <form class="col s12 form" method="POST" action="{{ route('register') }}">
+                                @csrf
+                                <div class="row">
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
+                                    <div class="input-field col s12">
+                                        <i class="material-icons prefix">account_circle</i>
+                                        <input id="login" type="text" class="validate {{ $errors->has('username') ? ' is-invalid' : '' }}"
+                                            name="username" value="{{ old('username') }}">
+                                        <label for="login">{{ __('Username') }}</label>
+                                    </div>
 
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
+                                    <div class="input-field col s12">
+                                        <i class="material-icons prefix">lock</i>
+                                        <input id="password" type="password" class="validate {{ $errors->has('password') ? ' is-invalid' : '' }}"
+                                            name="password">
+                                        <label for="password">Password</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <i class="material-icons prefix">stars</i>
+                                        <input id="password-confirm" type="password" class="validate"
+                                            name="password-confirmation">
+                                        <label for="password-confirm">Confirm Password</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <i class="material-icons prefix">account_box</i>
+                                        <input id="employeeid" type="text" class="validate {{ $errors->has('employeeid') ? ' is-invalid' : '' }}"
+                                            name="employeeid">
+                                        <label for="employeeid">Employee ID</label>
+                                    </div>
+                                </div>
+
+                                <div class="button">
+                                    <button class="btn waves-effect waves-light m-gradient login" type="submit">{{
+                                        __('Register') }}</button>
+                                </div>
+
+                            </form>
+
                         </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-@endsection
+</body>
+
+</html>

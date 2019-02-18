@@ -20,10 +20,10 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
         crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <script src={{asset('js/search.js')}}></script>
+    <script src={{asset('js/template.js')}}></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
-    <script type="text/javascript" charset="utf8 " src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
     <link href={{asset('css/template.css')}} rel="stylesheet">
     <link href={{asset('css/table.css')}} rel="stylesheet">
     <script>
@@ -89,7 +89,7 @@
                         </li>
                     </ul>
                     <a class="nav-item ml-3 d-none d-md-block">
-                        {{Auth::user()->name}}
+                        {{Auth::user()->username}}
                     </a>
                     <ul class="nav navbar-nav navbar-right d-none d-md-block">
 
@@ -107,7 +107,7 @@
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
             @csrf
         </form>
-        <div class="container-fluid my-5">
+        <div class="container-fluid p-0">
             @yield('content')
         </div>
     </div>

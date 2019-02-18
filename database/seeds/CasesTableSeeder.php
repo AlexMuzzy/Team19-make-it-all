@@ -16,9 +16,9 @@ class CasesTableSeeder extends Seeder
             'employeeID' => 0,
             'fname' => str_random(5),
             'sname' => str_random(5),
-            'category' => 'hardware',
+            'category' => 'Hardware',
             'issue' => 'Screen',
-            'priority' => 'low',
+            'priority' => 'Low',
             'summary' => str_random(10)
         ]);
     }

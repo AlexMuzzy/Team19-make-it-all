@@ -27,7 +27,6 @@ body {
     background: linear-gradient(90deg, rgba(2,119,233,1), rgba(61,211,246,1));
 }
 
-.spec-img {
-    width: 25%;
-    height: 25%;
+.welcome {
+	background-color:#7FDBFF;
 }

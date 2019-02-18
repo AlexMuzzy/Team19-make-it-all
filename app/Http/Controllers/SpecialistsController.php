@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\specialists;
 use Illuminate\Http\Request;
+use DB;
 
 class SpecialistsController extends Controller
 {
@@ -14,8 +15,13 @@ class SpecialistsController extends Controller
      */
     public function index()
     {
-        $specialists = specialists::all();
-        return view('specialists.specialists', compact('specialists'));
+        $userdetails = 
+            DB::table('specialists')
+                ->join('employees', 'specialists.employeeid', '=', 'employees.id')
+                ->select('specialists.*','employees.fname','employees.sname')
+                ->get();
+
+        return view('specialists.specialists', compact('userdetails'));
         //Return specialists table view with name of route.
     }
 
@@ -27,6 +33,7 @@ class SpecialistsController extends Controller
     public function create()
     {
         //
+        return view('specialists.new');
     }
 
     /**
@@ -38,6 +45,25 @@ class SpecialistsController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+        'employeeid' => 'required',
+        //'employeeid' => ['required','unique:specialists,employeeid','exists:employees,id'],
+        'hardwareExpert'=> 'required',
+        'softwareExpert' => 'required',
+        'networkExpert' => 'required'
+        ]);
+
+        $specialist = new specialists([
+        'employeeid' => $request->get('employeeid'),
+        'hardwareExpert'=> $request->get('hardwareExpert'),
+        'softwareExpert'=> $request->get('softwareExpert'),
+        'networkExpert'=> $request->get('networkExpert'),
+        'assignedCases'=> 0,
+        'solvedCases' => 0
+        ]);
+
+        $specialist->save();
+        return redirect()->action('SpecialistsController@index');
     }
 
     /**
@@ -69,9 +95,21 @@ class SpecialistsController extends Controller
      * @param  \App\specialists  $specialists
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, specialists $specialists)
+    public function update(Request $request, $id)
     {
+        $request->validate([
+            'hardwareExpert' => 'required',
+            'softwareExpert' => 'required',
+            'networkExpert' => 'required'
+            ]);
         //
+        $specialist = Specialists::find($id);
+        $specialist->hardwareExpert=$request->get('hardwareExpert');
+        $specialist->softwareExpert=$request->get('softwareExpert');
+        $specialist->networkExpert=$request->get('networkExpert');
+        $specialist->save();
+
+        return redirect()->action('SpecialistsController@index', ['Success' => 'Specialist has been changed.']);
     }
 
     /**

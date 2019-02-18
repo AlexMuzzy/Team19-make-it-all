@@ -57,7 +57,8 @@ class CasesController extends Controller
             'issue'=> $request->get('issue'),
             'priority'=> $request->get('priority'),
             'summary' => $request->get('summary'),
-            'solved' => $request->get('solved')
+            'solved' => $request->get('solved'),
+            'solvedtext' => $request->get('solvedtext')
           ]);
 
           $case->save();
