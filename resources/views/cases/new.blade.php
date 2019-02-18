@@ -1,6 +1,16 @@
+<?php
+    $employees = DB::table('employees')->pluck('id');
+?>
+
 @extends('layouts.template')
 
 @section('content')
+<script>
+    var employees = <?php echo $employees ?>;
+    console.log(employees);
+
+</script>
+
 <section>
     <div class="container my-5">
         @if ($errors->any())
@@ -18,11 +28,11 @@
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="inputForename">Employee ID</label>
-                    <input type="text" class="form-control" id="inputForename" name="fname">
+                    <input type="text" class="form-control" id="inputForename" name="employeeID">
                 </div>
                 <div class="form-group col-md-4">
                     <label for="inputSurname">First Name</label>
-                    <input type="text" class="form-control" id="inputSurname" name="sname">
+                    <input type="text" class="form-control" id="inputSurname" name="fname">
                 </div>
                 <div class="form-group col-md-4">
                     <label for="inputSurname">Surname</label>
@@ -32,21 +42,35 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputCategory">Category</label>
-                    <input id="inputCategory" class="form-control" name="category" type="text">
+                    <select id="inputCategory" class="form-control" name="category">
+                        <option disabled selected>Choose...</option>
+                        <option value="Software">Software</option>
+                        <option value="Hardware">Hardware</option>
+                        <option value="Networking">Networking</option>
+                    </select>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputIssue">Issue</label>
-                    <input id="inputIssue" class="form-control" name="issue" type="text">
+                    <input id="inputIssue" class="form-control" name="issue">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputPriority">Priority</label>
-                    <input id="inputPriority" class="form-control" name="priority" type="text">
+                    <select id="inputPriority" class="form-control" name="priority">
+                        <option disabled selected>Choose...</option>
+                        <option value="1">Low</option>
+                        <option value="2">Medium</option>
+                        <option value="3">Urgent</option>
+                    </select>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputSolved">Solved</label>
-                    <input id="inputSolved" class="form-control" name="solved" type="text">
+                    <select id="inputSolved" class="form-control" name="solved">
+                        <option disabled selected>Choose...</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">
