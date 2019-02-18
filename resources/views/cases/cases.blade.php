@@ -15,8 +15,6 @@
                     <th scope="col">Priority</th>
                     <th scope="col">Solved</th>
                     <th scope="col">View & Edit</th>
-                    <th scope="col">Delete</th>
-
                 </tr>
             </thead>
             <tbody>
@@ -44,13 +42,6 @@
                     <td>
                         <button type="button" class="btn btn-primary-outline" data-toggle="modal" data-target="#formModal{{ $case->id }}"
                             data-value="{{$case->id}}">View</button>
-                    </td>
-                    <td>
-                        <form action={{ route('cases.destroy', $case->id) }} method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button class="btn btn-danger" type="submit">{{__('Delete')}}</button>
-                        </form>
                     </td>
                 </tr>
                 <div class="modal fade" tabindex="-1" role="dialog" id="formModal{{ $case->id }}">

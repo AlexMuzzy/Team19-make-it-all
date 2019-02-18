@@ -9,8 +9,7 @@
                     <th scope="col">Log ID</th>
                     <th scope="col">Created At</th>
                     <th scope="col">Updated At</th>
-                    <th scope="col">View</th>
-                    <th scope="col">Delete</th>
+                    <th scope="col">View & Edit</th>
                 </tr>
             </thead>
             <tbody>
@@ -22,13 +21,6 @@
                     <td>
                         <button type="button" class="btn btn-primary-outline" data-toggle="modal" data-target="#formModal{{ $log->id }}"
                             data-value="{{$log->id}}">View</button>
-                    </td>
-                    <td>
-                        <form action={{ route('logs.destroy', $log->id) }} method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button class="btn btn-danger" type="submit">{{__('Delete')}}</button>
-                        </form>
                     </td>
                 </tr>
                 <div class="modal fade" tabindex="-1" role="dialog" id="formModal{{ $log->id }}">
