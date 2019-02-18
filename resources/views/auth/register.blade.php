@@ -37,7 +37,16 @@
 
                         </div>
                         <div class="row">
-
+                            @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            <br />
+                            @endif
                             <form class="col s12 form" method="POST" action="{{ route('register') }}">
                                 @csrf
                                 <div class="row">
@@ -57,8 +66,7 @@
                                     </div>
                                     <div class="input-field col s12">
                                         <i class="material-icons prefix">stars</i>
-                                        <input id="password-confirm" type="password" class="validate"
-                                            name="password-confirmation">
+                                        <input id="password-confirm" type="password" class="validate" name="password_confirmation">
                                         <label for="password-confirm">Confirm Password</label>
                                     </div>
                                     <div class="input-field col s12">

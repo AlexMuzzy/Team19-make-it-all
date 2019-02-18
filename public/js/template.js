@@ -13,16 +13,4 @@ $(document).ready(function () {
     */
     $('.form-control').addClass('shadow rounded border-0');
     $('.modal').addClass('border-0');
-    $(function () {
-        $("#inputSolved").change(function () {
-            var val = $(this).val();
-            if (val === "pilot_graph_form") {
-                $("#pilot_graph_form").show();
-                $("#client_graph_form").hide();
-            } else if (val === "client_form") {
-                $("#client_graph_form").show();
-                $("#pilot_graph_form").hide();
-            }
-        });
-    });
 });

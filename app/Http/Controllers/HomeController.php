@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use auth;
+use DB;
 
 class HomeController extends Controller
 {
@@ -24,6 +25,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $data = DB::table('cases')
+        ->select(DB::raw('category, count(category) as category_count '))
+        ->groupBy('category')
+        ->get();
+        return view('home', compact('data'));
     }
 }

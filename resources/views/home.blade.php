@@ -1,5 +1,15 @@
 @extends('layouts.template')
 @section('content')
+<script>
+    var data = @json($data);
+    var counter = [];
+    var labelles = [];
+    for (i in data){
+        counter[i] = data[i].category_count;
+        labelles[i] = data[i].category;
+    }
+    console.log(data);
+</script>
 <section>
     <div class="welcome">
         <div class="container d-flex align-items-center col-12 mx-5">
@@ -33,9 +43,9 @@
     var sptChart = new Chart(ctx, {
         type: 'doughnut',
         data: {
-            labels: ["Hardware", "Software"],
+            labels: labelles,
             datasets: [{
-                data: [60, 40],
+                data: counter,
                 backgroundColor: ["#03a9f4", "#00bcd4", "#ffc107", "#e91e63", "#4caf50"],
                 borderWidth: 1
             }]
