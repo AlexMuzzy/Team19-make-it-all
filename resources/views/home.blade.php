@@ -19,7 +19,7 @@
 <section>
     <div class="welcome">
         <div class="container d-flex align-items-center mx-5">
-            <div class="h-100 py-5 col-7 text-center">
+            <div class="h-100 py-5 col-12 text-center">
                 <h2 class="h-100 align-middle text-light display-4">Hello {{Auth::user()->username}}!</h2>
             </div>
             <div class="col-5 my-3 d-none d-md-block text-center">
