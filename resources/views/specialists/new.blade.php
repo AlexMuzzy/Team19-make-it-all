@@ -24,24 +24,24 @@
                     <label for="inputHardware">Hardware Expert?</label>
                     <select id="inputHardware" class="form-control" name="hardwareExpert">
                         <option disabled selected>Choose...</option>
-                        <option value="1">Yes</option>
-                        <option value="0">No</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
                     </select>
                 </div>
                 <div class="form-group col-md-4">
                     <label for="inputSoftware">Software Expert?</label>
                     <select id="inputSoftware" class="form-control" name="softwareExpert">
                         <option disabled selected>Choose...</option>
-                        <option value="1">Yes</option>
-                        <option value="0">No</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
                     </select>
                 </div>
                 <div class="form-group col-md-4">
                     <label for="inputNetworks">Network Expert?</label>
                     <select id="inputNetworks" class="form-control" name="networkExpert">
                         <option disabled selected>Choose...</option>
-                        <option value="1">Yes</option>
-                        <option value="0">No</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
                     </select>
                 </div>
             </div>

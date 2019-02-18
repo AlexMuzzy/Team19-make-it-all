@@ -46,8 +46,7 @@ class SpecialistsController extends Controller
     {
         //
         $request->validate([
-        'employeeid' => 'required',
-        //'employeeid' => ['required','unique:specialists,employeeid','exists:employees,id'],
+        'employeeid' => ['required','unique:specialists,employeeid','exists:employees,id'],
         'hardwareExpert'=> 'required',
         'softwareExpert' => 'required',
         'networkExpert' => 'required'
