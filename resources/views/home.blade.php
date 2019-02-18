@@ -13,10 +13,10 @@
 <section>
     <div class="welcome">
         <div class="container d-flex align-items-center col-12 mx-5">
-            <div class="h-100 col-7 py-5  text-center">
+            <div class="h-100 col-8 py-5  text-center">
                 <h2 class="h-100 align-middle text-light display-4">Hello {{Auth::user()->username}}!</h2>
             </div>
-            <div class="col-5 my-3 d-none d-md-block text-center">
+            <div class="col-4 my-3 text-left">
                 <div class="d-inline-flex rounded-circle bg-light shadow p-3 mb-5 rounded">
                     <i class="fas fa-6x fa-wrench logo-color m-3 align-middle"></i>
                 </div>

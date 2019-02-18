@@ -29,7 +29,7 @@
                     <h1 class="display-2 font-weight-bold respons-display">Hello {{Auth::user()->name}}</h1>
                     <h4>Please Select Past or Existing Cases</h4>
                 </div>
-                <div class="col-md-5 d-none d-md-block my-5 text-right">
+                <div class="col-md-5 my-5 text-right">
                     <div class="d-inline-flex rounded-circle bg-light shadow p-3 mb-5 rounded">
                         <i class="fas fa-9x fa-wrench logo-color m-3"></i>
                     </div>
