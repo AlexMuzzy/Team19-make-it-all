@@ -24,4 +24,9 @@ class cases extends Model
             $this->attributes['solved'] = ($value=='Yes')?($value=1):
             ($value=0);
     }
+    public function setSolvedtextAttribute($value)
+    {
+            $this->attributes['solvedtext'] = ($value!='')?($value=$value):
+            ($value='');
+    }
 }
