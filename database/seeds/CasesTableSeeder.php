@@ -20,7 +20,8 @@ class CasesTableSeeder extends Seeder
             'issue' => 'Screen',
             'priority' => 'Low',
             'summary' => str_random(10),
-            'solvedtext' => ''
+            'assignedTo' => 0,
+            'solvedtext' => str_random(10)
         ]);
     }
 }
