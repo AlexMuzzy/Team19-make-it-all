@@ -127,7 +127,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="inputAssigned">Assigned To</label>
-                                            <input id="inputAssigned" text="text" class="form-control" name="assignedTo" value="{{ $case->assignedTo }}">
+                                            <input id="inputAssigned" text="text" class="form-control" name="assignedTo" value="{{ $case->assignedTo }}" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group">
