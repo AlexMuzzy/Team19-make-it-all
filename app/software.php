@@ -9,7 +9,8 @@ class software extends Model
     protected $fillable = [
         'software',
         'supported',
-        'licensed'
+        'licensed',
+        'vendor'
     ];
 
     public function setsupportedAttribute($value)
