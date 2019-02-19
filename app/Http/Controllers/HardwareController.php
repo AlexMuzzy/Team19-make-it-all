@@ -120,6 +120,6 @@ class HardwareController extends Controller
         $hardware = hardware::find($id);
         $hardware->delete();
 
-        return redirect()->action('hardwareController@index',['Success' => 'hardware has been deleted.']);
+        return redirect()->action('HardwareController@index',['Success' => 'hardware has been deleted.']);
     }
 }

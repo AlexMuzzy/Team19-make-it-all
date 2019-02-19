@@ -15,7 +15,7 @@ class CreateCasesTable extends Migration
     {
         Schema::create('cases', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('employeeID');
+            $table->integer('employeeID');
             $table->string('fname');
             $table->string('sname');
             $table->string('category');

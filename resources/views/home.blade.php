@@ -11,7 +11,7 @@
 </script>
 <section>
     <div class="welcome">
-        <div class="container d-flex align-items-center col-12 mx-5">
+        <div class="container d-flex align-items-center col-12">
             <div class="h-100 col-8 py-5  text-center">
                 <h2 class="h-100 align-middle text-light display-4">Hello {{Auth::user()->username}}!</h2>
             </div>

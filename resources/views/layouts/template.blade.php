@@ -37,79 +37,77 @@
 </head>
 
 <body>
-    <div class="bootstrap-styles">
-        <nav class="navbar navbar-expand-md navbar-dark navbar-default">
-            <div class="container my-2">
-                <a class="navbar-brand" href="#">{{$name}} Page</a>
-                <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbar-Main">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse justify-content-between" id="navbar-Main">
-                    <ul class="navbar-nav ml-auto my-1">
-                        <li class="nav-item">
-                            <a class="nav-link ml-2" href={{route('home')}}>
-                                <i class="fas fa-home"></i> Home
-                            </a>
-                        </li>
-                        <li class="nav-item ml-2">
-                            <a class="nav-link" href={{route('specialists.index')}}>
-                                <i class="fas fa-users"></i> Specialists
-                            </a>
-                        </li>
-                        <li class="nav-item ml-2">
-                            <a class="nav-link" href={{route('logs.index')}}>
-                                <i class="fas fa-phone"></i> Call Logs
-                            </a>
-                        </li>
-                        <li class="nav-item ml-2">
-                            <a class="nav-link" href={{route('cases.index')}}>
-                                <i class="fas fa-clipboard"></i> Cases
-                            </a>
-                        </li>
-                        <li class="nav-item ml-2 ">
-                            <a class="nav-link" href={{route('employees.index')}}>
-                                <i class="fas fa-user-circle"></i> Employees
-                            </a>
-                        </li>
+    <nav class="navbar navbar-expand-md navbar-dark navbar-default shadow">
+        <div class="container my-2">
+            <a class="navbar-brand" href="#">{{$name}} Page</a>
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbar-Main">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse justify-content-between" id="navbar-Main">
+                <ul class="navbar-nav ml-auto my-1">
+                    <li class="nav-item">
+                        <a class="nav-link ml-2" href={{route('home')}}>
+                            <i class="fas fa-home"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item ml-2">
+                        <a class="nav-link" href={{route('specialists.index')}}>
+                            <i class="fas fa-users"></i> Specialists
+                        </a>
+                    </li>
+                    <li class="nav-item ml-2">
+                        <a class="nav-link" href={{route('logs.index')}}>
+                            <i class="fas fa-phone"></i> Call Logs
+                        </a>
+                    </li>
+                    <li class="nav-item ml-2">
+                        <a class="nav-link" href={{route('cases.index')}}>
+                            <i class="fas fa-clipboard"></i> Cases
+                        </a>
+                    </li>
+                    <li class="nav-item ml-2 ">
+                        <a class="nav-link" href={{route('employees.index')}}>
+                            <i class="fas fa-user-circle"></i> Employees
+                        </a>
+                    </li>
 
-                        <li class="nav-item ml-2">
-                            <a class="nav-link" href={{route('hardware.index')}}>
-                                <i class="fas fa-keyboard"></i> Hardware
-                            </a>
-                        </li>
-                        <li class="nav-item ml-2">
-                            <a class="nav-link" href={{route('software.index')}}>
-                                <i class="fas fa-compact-disc"></i> Software
-                            </a>
-                        </li>
-                        <li class="nav-item ml-2 d-sm-block d-md-none">
-                            <a class="nav-link" href={{ route('logout') }} onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}
-                            </a>
-                        </li>
-                    </ul>
-                    <a class="nav-item ml-3 d-none d-md-block">
-                        {{Auth::user()->username}}
-                    </a>
-                    <ul class="nav navbar-nav navbar-right d-none d-md-block">
+                    <li class="nav-item ml-2">
+                        <a class="nav-link" href={{route('hardware.index')}}>
+                            <i class="fas fa-keyboard"></i> Hardware
+                        </a>
+                    </li>
+                    <li class="nav-item ml-2">
+                        <a class="nav-link" href={{route('software.index')}}>
+                            <i class="fas fa-compact-disc"></i> Software
+                        </a>
+                    </li>
+                    <li class="nav-item ml-2 d-sm-block d-md-none">
+                        <a class="nav-link" href={{ route('logout') }} onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}
+                        </a>
+                    </li>
+                </ul>
+                <a class="nav-item ml-3 d-none d-md-block">
+                    {{Auth::user()->username}}
+                </a>
+                <ul class="nav navbar-nav navbar-right d-none d-md-block">
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbar-main-dropdown" data-toggle="dropdown"></a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href={{ route('logout') }} onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{
-                                    __('Logout') }}</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbar-main-dropdown" data-toggle="dropdown"></a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href={{ route('logout') }} onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{
+                                __('Logout') }}</a>
+                        </div>
+                    </li>
+                </ul>
             </div>
-        </nav>
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-            @csrf
-        </form>
-        <div class="container-fluid p-0">
-            @yield('content')
         </div>
+    </nav>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+    </form>
+    <div class="container-fluid p-0">
+        @yield('content')
     </div>
 </body>
 

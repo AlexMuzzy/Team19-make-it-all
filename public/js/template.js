@@ -13,4 +13,5 @@ $(document).ready(function () {
     */
     $('.form-control').addClass('shadow rounded border-0');
     $('.modal').addClass('border-0');
+    $('.btn').addClass('shadow');
 });

@@ -80,10 +80,17 @@
                     </div>
                 </div>
             </div>
-            <div class="col-3">
+            <div class="col-2">
                 <button type="button" class=" float-right btn btn-primary-outline" data-toggle="modal" data-target="#formModal{{ $user->id }}"
                     data-value="{{$user->id}}">View</button>
             </div>
+            <form action={{ route('specialists.destroy', $user->id) }} method="POST" class="col-1">
+                @csrf
+                @method('DELETE')
+                <button class="btn btn-danger" type="submit">
+                    <i class="far fa-trash-alt"></i>
+                </button>
+            </form>
         </div>
     </div>
     @endforeach

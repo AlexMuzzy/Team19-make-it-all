@@ -19,8 +19,8 @@
                 <tr>
                     <td>{{$row->id}}</td>
                     <td>{{$row->software}}</td>
-                    <td>{{$row['supported'] ? 'Yes' : 'No'}}</td>
-                    <td>{{$row['licensed'] ? 'Yes' : 'No'}}</td>
+                    <td>{!! $row['supported'] ? '<i class="fas fa-check"></i>' : '<i class="fas fa-times"></i>' !!}</td>
+                    <td>{!! $row['licensed'] ? '<i class="fas fa-check"></i>' : '<i class="fas fa-times"></i>' !!}</td>
                     <td>
                             <button type="button" class="btn btn-primary-outline" data-toggle="modal" data-target="#formModal{{ $row->id }}"
                                 data-value="{{$row->id}}">View</button>
@@ -29,7 +29,8 @@
                         <form action={{ route('software.destroy', $row->id) }} method="POST">
                             @csrf
                             @method('DELETE')
-                            <button class="btn btn-danger" type="submit">{{__('Delete')}}</button>
+                            <button class="btn btn-danger" type="submit"><i class="far fa-trash-alt"></i>
+                            </button>
                         </form>
                     </td>
                 </tr>
