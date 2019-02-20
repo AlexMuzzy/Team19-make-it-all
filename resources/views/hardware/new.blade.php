@@ -24,10 +24,6 @@
                     <input id="inputHardwareSN" class="form-control" name="hardwareSN" type="text">
                 </div>
             <div class="form-group col-md-12">
-                <label for="inputType">Type</label>
-                <input type="text" class="form-control" id="inputType" name="type">
-            </div>
-            <div class="form-group col-md-12">
                 <label for="inputVendor">Vendor</label>
                 <input id="inputVendor" class="form-control" name="vendor" type="text">
             </div>
