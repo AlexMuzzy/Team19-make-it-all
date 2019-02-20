@@ -157,6 +157,8 @@ class CasesController extends Controller
                 $specialist = new specialists;
                 $specialist = specialists::find($request->get('assignedTo'));
                 $specialsolvedval = $specialist->solvedCases;
+                $specialassignedval = $specialist->assignedCases;
+                $specialist->assignedCases = $specialassignedval-1;
                 $specialist->solvedCases=$specialsolvedval+1;
                 $specialist->save();
             }
