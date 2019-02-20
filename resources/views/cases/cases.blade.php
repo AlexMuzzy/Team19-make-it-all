@@ -138,8 +138,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="inputnotes">Additional Notes</label>
-                                        <textarea type="text" class="form-control" id="inputnotes" name="notes"
-                                            value="{{ $case->notes }}"></textarea>
+                                        <textarea type="text" class="form-control" id="inputnotes" name="notes">{{ $case->notes }}</textarea>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
