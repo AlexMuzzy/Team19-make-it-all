@@ -7,6 +7,10 @@
             <thead>
                 <tr>
                     <th scope="col">Log ID</th>
+                    <th scope="col">Case ID</th>
+                    <th scope="col">Caller</th>
+                    <th scope="col">Operator</th>
+                    <th scope="col">Reason</th>
                     <th scope="col">Created At</th>
                     <th scope="col">Updated At</th>
                     <th scope="col">View & Edit</th>
@@ -16,6 +20,10 @@
                 @foreach($logs as $log)
                 <tr>
                     <td>{{$log->id}}</td>
+                    <td>{{$log->caseid}}</td>
+                    <td>{{$log->caller}}</td>
+                    <td>{{$log->operator}}</td>
+                    <td>{{$log->reason}}</td>
                     <td>{{$log->created_at}}</td>
                     <td>{{$log->updated_at}}</td>
                     <td>

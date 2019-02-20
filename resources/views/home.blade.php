@@ -46,7 +46,7 @@
             </div>
             <div class="col-lg-5">
                 <div class="text-center">
-                    <h4 class="display-5 my-3">Recent Cases</h4>
+                    <h4 class="display-5 my-3">Most Recent Cases</h4>
                 </div>
                 <table id="resultsTable" class="table table-hover dataresults">
                     <thead>
