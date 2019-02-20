@@ -84,8 +84,6 @@ class CasesController extends Controller
                 $specialist->assignedCases=$newval+1;
                 $specialist->save();
             }
-
-
         $case = new cases([
         'employeeID' => $request->get('employeeID'),
         'fname' => $request->get('fname'),
@@ -134,11 +132,13 @@ class CasesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $text = '';
-        if($request->get('solved')){
-            $text = 'required';
+        /*
+        if($request->get('solved') == 1){
+            $request->validate([
+                'solvedtext' => 'required'
+            ]);
         }
-
+        */
         $request->validate([
             'employeeID' => 'required',
             'fname'=>'required',
@@ -148,7 +148,6 @@ class CasesController extends Controller
             'priority' => 'required',
             'solved' => 'required',
             'summary' => 'required',
-            'solvedtext' => $text
         ]);
         
         
