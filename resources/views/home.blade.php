@@ -11,7 +11,7 @@
 
     var data2 = @json($data2);
     var chartdata2 = [];
-    var chartlabels2 = ['Solved', 'Un-Solved'];
+    var chartlabels2 = ['Un-solved', 'Solved'];
     for (var j in data2) {
         chartdata2[j] = data2[j].solved_count;
     }

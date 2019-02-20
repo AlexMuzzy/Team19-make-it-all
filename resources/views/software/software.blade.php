@@ -7,10 +7,10 @@
             <thead>
                 <tr>
                     <th scope="col">Software ID</th>
+                    <th scope="col">Software Vendor</th>
                     <th scope="col">Software Name</th>
                     <th scope="col">Supported?</th>
                     <th scope="col">Licensed?</th>
-                    <th scope="col">Vendor</th>
                     <th scope="col">Edit</th>
                     <th scope="col">Delete</th>
                 </tr>
@@ -19,6 +19,7 @@
                 @foreach($software as $row)
                 <tr>
                     <td>{{$row->id}}</td>
+                    <td>{{$row->vendor}}</td>
                     <td>{{$row->software}}</td>
                     <td>{!! $row['supported'] ? '<i class="fas fa-check"></i>' : '<i class="fas fa-times"></i>' !!}</td>
                     <td>{!! $row['licensed'] ? '<i class="fas fa-check"></i>' : '<i class="fas fa-times"></i>' !!}</td>
@@ -54,19 +55,26 @@
                                             value="{{ $row->software }}">
                                     </div>
                                     <div class="form-group col-md-12">
+                                        <label for="inputVendor">Software Vendor</label>
+                                        <input type="text" class="form-control" id="inputVendor" name="vendor" value="{{ $row->vendor }}">
+                                    </div>
+                                    <div class="form-group col-md-12">
                                         <label for="inputSupported">Supported?</label>
-                                        <input id="inputSupported" class="form-control" name="supported" type="text"
-                                            value={{ $row['supported'] ? 'Yes' : 'No' }}>
+                                        <select id="inputSupported" class="form-control" name="supported" type="text">
+                                            <option value="1" @if(($row->supported) == '1') selected @endif
+                                                >Yes</option>
+                                            <option value="2" @if(($row->supported) == '0') selected @endif
+                                                >No</option>
+                                        </select>
                                     </div>
                                     <div class="form-group col-md-12">
                                         <label for="inputLicensed">Licensed?</label>
-                                        <input id="inputLicensed" class="form-control" name="licensed" type="text"
-                                            value={{ $row['licensed'] ? 'Yes' : 'No' }}>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="inputLicensed">Licensed?</label>
-                                        <input id="inputLicensed" class="form-control" name="vendor" type="text"
-                                            value={{ $row->vendor }}>
+                                        <select id="inputLicensed" class="form-control" name="licensed">
+                                            <option value="1" @if(($row->licensed) == '1') selected @endif
+                                                >Yes</option>
+                                            <option value="2" @if(($row->licensed) == '0') selected @endif
+                                                >No</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
