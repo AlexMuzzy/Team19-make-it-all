@@ -132,11 +132,13 @@ class CasesController extends Controller
      */
     public function update(Request $request, $id)
     {
+        /*
         if($request->get('solved')){
             $request->validate([
                 'solvedtext' => 'required'
             ]);
         }
+        */
         $request->validate([
             'employeeID' => 'required',
             'fname'=>'required',
