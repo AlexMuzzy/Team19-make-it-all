@@ -10,6 +10,7 @@
                     <th scope="col">Software Name</th>
                     <th scope="col">Supported?</th>
                     <th scope="col">Licensed?</th>
+                    <th scope="col">Vendor</th>
                     <th scope="col">Edit</th>
                     <th scope="col">Delete</th>
                 </tr>
@@ -61,6 +62,11 @@
                                         <label for="inputLicensed">Licensed?</label>
                                         <input id="inputLicensed" class="form-control" name="licensed" type="text"
                                             value={{ $row['licensed'] ? 'Yes' : 'No' }}>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="inputLicensed">Licensed?</label>
+                                        <input id="inputLicensed" class="form-control" name="vendor" type="text"
+                                            value={{ $row->vendor }}>
                                     </div>
                                 </div>
                                 <div class="modal-footer">

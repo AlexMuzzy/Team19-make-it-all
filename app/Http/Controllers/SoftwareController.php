@@ -105,6 +105,8 @@ class SoftwareController extends Controller
         $row->software=$request->get('software');
         $row->supported=$request->get('supported');
         $row->licensed=$request->get('licensed');
+        $row->vendor=$request->get('vendor');
+
 
         $row->save();
         return redirect()->action('SoftwareController@index',['Success' => 'Software has been added.']);

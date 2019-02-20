@@ -39,6 +39,14 @@
                     <option value="0">No</option>
                 </select>
             </div>
+            <div class="form-group col-md-12">
+                <label for="inputVendor">Vendor</label>
+                <select id="inputVendor" class="form-control" name="vendor">
+                    <option selected disabled>Choose...</option>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+            </div>
             <button type="submit" class="btn btn-lg btn-primary-outline">Submit</button>
         </form>
     </div>
