@@ -176,7 +176,8 @@ class CasesController extends Controller
         $case->priority=$request->get('priority');
         $case->solved=$request->get('solved');
         $case->summary=$request->get('summary');
-        $case->summary=$request->get('assignedTo');
+        $case->assignedTo=$request->get('assignedTo');
+        $case->solvedtext=$request->get('solvedtext');
         $case->save();
 
         return redirect()->action('CasesController@index',['Success' => 'Case has been updated.']);
