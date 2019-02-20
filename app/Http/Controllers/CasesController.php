@@ -152,10 +152,10 @@ class CasesController extends Controller
         
         
         $case = Cases::find($id);
-        $specialist = new specialists;
-        $specialist = specialists::find($request->get('assignedTo'));
-        $specialsolvedval = $specialist->solvedCases;
         if ($case->solved == 0){
+            $specialist = new specialists;
+            $specialist = specialists::find($request->get('assignedTo'));
+            $specialsolvedval = $specialist->solvedCases;
             if($request->get('solved') == "Yes"){
                 $specialist->solvedCases=$specialsolvedval+1;
                 $specialist->save();
