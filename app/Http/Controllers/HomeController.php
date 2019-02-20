@@ -34,7 +34,7 @@ class HomeController extends Controller
         ->select(DB::raw('solved, count(solved) as solved_count'))
         ->groupBy('solved')
         ->get();
-        $latestcases = Cases::orderBy('created_at', 'asc')->take(5)->get();
+        $latestcases = Cases::orderBy('created_at', 'desc')->take(5)->get();
         return view('home', compact('data', 'data2', 'latestcases'));
 
 
