@@ -93,7 +93,7 @@ class CasesController extends Controller
         'priority'=> $request->get('priority'),
         'summary' => $request->get('summary'),
         'solved' => $request->get('solved'),
-        'solvedtext' => $request->get('solvedtext'),
+        'notes' => $request->get('notes'),
         'assignedTo' => $assignedToVal
         ]);
 
@@ -135,7 +135,7 @@ class CasesController extends Controller
         /*
         if($request->get('solved')){
             $request->validate([
-                'solvedtext' => 'required'
+                'notes' => 'required'
             ]);
         }
         */
@@ -152,21 +152,19 @@ class CasesController extends Controller
         
         
         $case = Cases::find($id);
-        /*
         $specialist = new specialists;
         $specialist = specialists::find($request->get('assignedTo'));
         $specialsolvedval = $specialist->solvedCases;
         if ($case->solved == 0){
             if($request->get('solved')){
                 $data = DB::table('specialists')
-                    ->where('id','=',$request->get('assignedTo'))
+                    ->where('id','=', $request->get('assignedTo'))
                     ->get();
                 $special->solvedCases=$specialsolvedval+1;
                 $specialist->save();
             }
-
         }
-        */
+
         $case->employeeID=$request->get('employeeID');
         $case->fname=$request->get('fname');
         $case->sname=$request->get('sname');
@@ -176,7 +174,7 @@ class CasesController extends Controller
         $case->solved=$request->get('solved');
         $case->summary=$request->get('summary');
         $case->assignedTo=$request->get('assignedTo');
-        $case->solvedtext=$request->get('solvedtext');
+        $case->notes=$request->get('notes');
         $case->save();
 
         return redirect()->action('CasesController@index',['Success' => 'Case has been updated.']);

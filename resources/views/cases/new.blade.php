@@ -78,8 +78,8 @@
                 <input type="text" class="form-control" id="inputSummary" name="summary">
             </div>
             <div class="form-group">
-                <label for="inputSolvedText">Solved Explanation</label>
-                <textarea type="text" class="form-control" id="inputSolvedText" name="solvedtext"></textarea>
+                <label for="inputnotes" id="inputnotes">Additional Notes</label>
+                <textarea type="text" class="form-control" id="inputnotes" name="notes"></textarea>
             </div>
             <button type="submit" class="btn btn-lg btn-primary-outline">Submit</button>
         </form>

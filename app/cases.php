@@ -17,7 +17,7 @@ class cases extends Model
         'summary',
         'solved',
         'assignedTo',
-        'solvedtext'
+        'notes'
     ];
 
     public function setSolvedAttribute($value)
@@ -25,9 +25,9 @@ class cases extends Model
             $this->attributes['solved'] = ($value=='Yes')?($value=1):
             ($value=0);
     }
-    public function setSolvedtextAttribute($value)
+    public function setNotesAttribute($value)
     {
-            $this->attributes['solvedtext'] = ($value!='')?($value=$value):
+            $this->attributes['notes'] = ($value!='')?($value=$value):
             ($value='');
     }
 }

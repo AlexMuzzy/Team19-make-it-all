@@ -6,7 +6,4 @@ $(document).ready(function () {
     $('.btn').addClass('shadow');
     $('.dataTables_filter input').addClass('shadow rounded border-0');
     $('.dataTables_length select').addClass('shadow rounded border-0');
-    if($('#inputSolved').find('option:contains("No")')){
-        $('#inputSolvedText').hide();
-    }
 });

@@ -137,9 +137,9 @@
                                         <input type="text" class="form-control" id="inputSummary" name="summary" value="{{ $case->summary }}">
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputSolvedText">Solved Explanation</label>
-                                        <textarea type="text" class="form-control" id="inputSolvedText" name="solvedtext"
-                                            value="{{ $case->solvedtext }}"></textarea>
+                                        <label for="inputnotes">Solved Explanation</label>
+                                        <textarea type="text" class="form-control" id="inputnotes" name="notes"
+                                            value="{{ $case->notes }}"></textarea>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
