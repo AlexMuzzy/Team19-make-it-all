@@ -48,7 +48,7 @@ class LogsController extends Controller
         //
         $request->validate([
             'caseid' => 'required',
-            'caller'=>'required',
+            'callerid'=>['required','exists:employees,id'],
             'operator'=> 'required',
             'hardwareSN' => 'required',
             'reason' => 'required'
@@ -57,7 +57,7 @@ class LogsController extends Controller
         $now = new DateTime();
         $log = new logs([
             'caseid' => $request->get('caseid'),
-            'caller' => $request->get('caller'),
+            'callerid' => $request->get('callerid'),
             'operator'=> $request->get('operator'),
             'hardwareSN'=> $request->get('hardwareSN'),
             'OS'=> $request->get('OS'),
@@ -102,14 +102,14 @@ class LogsController extends Controller
     {
         $request->validate([
             'caseid' => 'required',
-            'caller'=>'required',
+            'callerid'=>'required',
             'operator'=> 'required',
             'hardwareSN' => 'required',
             'reason' => 'required'
         ]);
         $log = logs::find($id);
             $log->caseid=$request->get('caseid');
-            $log->caller=$request->get('caller');
+            $log->callerid=$request->get('callerid');
             $log->operator=$request->get('operator');
             $log->hardwareSN=$request->get('hardwareSN');
             $log->OS=$request->get('OS');

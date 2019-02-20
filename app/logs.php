@@ -8,7 +8,7 @@ class logs extends Model
 {
     protected $fillable = [
         'caseid',
-    	'caller',
+    	'callerid',
     	'operator',
     	'hardwareSN',
     	'OS',

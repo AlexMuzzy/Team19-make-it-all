@@ -9,7 +9,6 @@
                     <th scope="col">Hardware ID</th>
                     <th scope="col">Hardware</th>
                     <th scope="col">Hardware Serial</th>
-                    <th scope="col">Type</th>
                     <th scope="col">Vendor</th>
                     <th scope="col">Edit</th>
                     <th scope="col">Delete</th>
@@ -21,7 +20,6 @@
                     <td>{{$row->id}}</td>
                     <td>{{$row->hardware}}</td>
                     <td>{{$row->hardwareSN}}</td>
-                    <td>{{$row->type}}</td>
                     <td>{{$row->vendor}}</td>
                     <td>
                         <button type="button" class="btn btn-primary-outline" data-toggle="modal" data-target="#formModal{{ $row->id }}"
@@ -57,10 +55,6 @@
                                         <label for="inputHardwareSN">Hardware Serial</label>
                                         <input id="inputHardwareSN" class="form-control" name="hardwareSN" type="text"
                                             value="{{ $row->hardwareSN }}">
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="inputType">Type</label>
-                                        <input type="text" class="form-control" id="inputType" name="type" value="{{ $row->type }}">
                                     </div>
                                     <div class="form-group col-md-12">
                                         <label for="inputVendor">Vendor</label>

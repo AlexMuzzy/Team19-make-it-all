@@ -20,8 +20,8 @@
                 <input type="text" class="form-control" id="inputCaseID" name="caseid">
             </div>
             <div class="form-group col-md-12">
-                <label for="inputCaller">Caller</label>
-                <input type="text" class="form-control" id="inputCaller" name="caller">
+                <label for="inputCallerID">Employee ID</label>
+                <input type="text" class="form-control" id="inputCallerID" name="callerid">
             </div>
             <div class="form-group col-md-12">
                 <label for="inputOperator">Operator</label>

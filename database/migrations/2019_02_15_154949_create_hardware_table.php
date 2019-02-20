@@ -17,7 +17,6 @@ class CreateHardwareTable extends Migration
             $table->increments('id');
             $table->text('hardware');
             $table->string('hardwareSN');
-            $table->string('type');
             $table->string('vendor');
             $table->timestamps();
         });

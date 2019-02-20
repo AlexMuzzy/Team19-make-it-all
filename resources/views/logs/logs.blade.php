@@ -8,7 +8,7 @@
                 <tr>
                     <th scope="col">Log ID</th>
                     <th scope="col">Case ID</th>
-                    <th scope="col">Caller</th>
+                    <th scope="col">Employee ID</th>
                     <th scope="col">Operator</th>
                     <th scope="col">Reason</th>
                     <th scope="col">Created At</th>
@@ -21,7 +21,7 @@
                 <tr>
                     <td>{{$log->id}}</td>
                     <td>{{$log->caseid}}</td>
-                    <td>{{$log->caller}}</td>
+                    <td>{{$log->callerid}}</td>
                     <td>{{$log->operator}}</td>
                     <td>{{$log->reason}}</td>
                     <td>{{$log->created_at}}</td>
@@ -46,14 +46,14 @@
                                 <div class="modal-body">
                                     <div class="form-row">
                                         <div class="form-group col-md-4">
-                                            <label for="inputCaller">Case ID</label>
-                                            <input type="text" class="form-control" id="inputCaller" name="caseid"
+                                            <label for="inputcallerid">Case ID</label>
+                                            <input type="text" class="form-control" id="inputcallerid" name="caseid"
                                                 value="{{ $log->caseid }}">
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <label for="inputCaller">Caller</label>
-                                            <input type="text" class="form-control" id="inputCaller" name="caller"
-                                                value="{{ $log->caller }}">
+                                            <label for="inputcallerid">Employee ID</label>
+                                            <input type="text" class="form-control" id="inputcallerid" name="callerid"
+                                                value="{{ $log->callerid }}">
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="inputOperator">Operator</label>

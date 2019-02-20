@@ -9,7 +9,6 @@ class hardware extends Model
     protected $fillable = [
         'hardware',
         'hardwareSN',
-        'type',
         'vendor'
     ];
 }

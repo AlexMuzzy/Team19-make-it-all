@@ -22,9 +22,9 @@
                     <td>{!! $row['supported'] ? '<i class="fas fa-check"></i>' : '<i class="fas fa-times"></i>' !!}</td>
                     <td>{!! $row['licensed'] ? '<i class="fas fa-check"></i>' : '<i class="fas fa-times"></i>' !!}</td>
                     <td>
-                            <button type="button" class="btn btn-primary-outline" data-toggle="modal" data-target="#formModal{{ $row->id }}"
-                                data-value="{{$row->id}}">View</button>
-                        </td>
+                        <button type="button" class="btn btn-primary-outline" data-toggle="modal" data-target="#formModal{{ $row->id }}"
+                            data-value="{{$row->id}}">View</button>
+                    </td>
                     <td>
                         <form action={{ route('software.destroy', $row->id) }} method="POST">
                             @csrf
@@ -71,13 +71,14 @@
                         </div>
                     </div>
                 </div>
-                
+
                 @endforeach
             </tbody>
         </table>
-        <a class="row align-items-right p-3" href={{route('software.create')}}>
-            <button class="btn btn-lg btn-primary-outline" type="button">{{__('New Software')}}</button>
-        </a>
+
     </div>
+    <a class="row align-items-right p-3" href={{route('software.create')}}>
+        <button class="btn btn-lg btn-primary-outline" type="button">{{__('New Software')}}</button>
+    </a>
 </section>
 @endsection

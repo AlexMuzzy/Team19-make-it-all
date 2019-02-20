@@ -49,14 +49,12 @@ class HardwareController extends Controller
         $request->validate([
             'hardware'=>'required',
             'hardwareSN'=> 'required',
-            'type' => 'required',
             'vendor' => 'required'
         ]);
         
         $row = new hardware([
             'hardware' => $request->get('hardware'),
             'hardwareSN'=> $request->get('hardwareSN'),
-            'type'=> $request->get('type'),
             'vendor'=> $request->get('vendor')
         ]);
 
@@ -102,13 +100,11 @@ class HardwareController extends Controller
         $request->validate([
             'hardware'=>'required',
             'hardwareSN'=>'required',
-            'type'=> 'required',
             'vendor' => 'required'
         ]);
         $row = hardware::find($id);
         $row->hardware=$request->get('hardware');
         $row->hardwareSN=$request->get('hardwareSN');
-        $row->type=$request->get('type');
         $row->vendor=$request->get('vendor');
 
         $row->save();
