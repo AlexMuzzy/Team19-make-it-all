@@ -137,7 +137,7 @@
                                         <input type="text" class="form-control" id="inputSummary" name="summary" value="{{ $case->summary }}">
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputnotes">Solved Explanation</label>
+                                        <label for="inputnotes">Additional Notes</label>
                                         <textarea type="text" class="form-control" id="inputnotes" name="notes"
                                             value="{{ $case->notes }}"></textarea>
                                     </div>
