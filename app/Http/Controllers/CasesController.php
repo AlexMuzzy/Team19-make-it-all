@@ -17,6 +17,12 @@ class CasesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
         $cases = cases::all();
@@ -144,17 +150,24 @@ class CasesController extends Controller
             'summary' => 'required',
             'solvedtext' => $text
         ]);
-
+        
+        
+        $case = Cases::find($id);
+        /*
+        $specialist = new specialists;
+        $specialist = specialists::find($request->get('assignedTo'));
+        $specialsolvedval = $specialist->solvedCases;
         if ($case->solved == 0){
             if($request->get('solved')){
                 $data = DB::table('specialists')
-                    ->where('hardwareExpert','=',1)
-                    ->orderBy('assignedCases', 'asc')
-                    ->first();
+                    ->where('id','=',$request->get('assignedTo'))
+                    ->get();
+                $special->solvedCases=$specialsolvedval+1;
+                $specialist->save();
             }
+
         }
-        
-        $case = Cases::find($id);
+        */
         $case->employeeID=$request->get('employeeID');
         $case->fname=$request->get('fname');
         $case->sname=$request->get('sname');

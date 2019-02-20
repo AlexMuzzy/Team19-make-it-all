@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\employees;
 use Illuminate\Http\Request;
+use auth;
 
 class EmployeesController extends Controller
 {
@@ -12,6 +13,12 @@ class EmployeesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         //

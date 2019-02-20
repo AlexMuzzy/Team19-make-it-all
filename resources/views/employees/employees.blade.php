@@ -34,7 +34,7 @@
                         <form action={{ route('employees.destroy', $employee->id) }} method="POST">
                             @csrf
                             @method('DELETE')
-                            <button class="btn btn-danger" type="submit">{{__('Delete')}}</button>
+                            <button class="btn btn-danger" type="submit"><i class="far fa-trash-alt"></i></button>
                         </form>
                     </td>
                 </tr>

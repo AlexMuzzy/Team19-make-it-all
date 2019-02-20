@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use auth;
 use DB;
+use App\cases;
 
 class HomeController extends Controller
 {
@@ -28,7 +29,14 @@ class HomeController extends Controller
         $data = DB::table('cases')
         ->select(DB::raw('category, count(category) as category_count '))
         ->groupBy('category')
+        ->get();        
+        $data2 = DB::table('cases')
+        ->select(DB::raw('solved, count(solved) as solved_count'))
+        ->groupBy('solved')
         ->get();
-        return view('home', compact('data'));
+        $latestcases = Cases::orderBy('created_at', 'asc')->take(5)->get();
+        return view('home', compact('data', 'data2', 'latestcases'));
+
+
     }
 }
