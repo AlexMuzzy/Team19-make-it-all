@@ -156,15 +156,11 @@ class CasesController extends Controller
         $specialist = specialists::find($request->get('assignedTo'));
         $specialsolvedval = $specialist->solvedCases;
         if ($case->solved == 0){
-            if($request->get('solved') == 1){
-                $data = DB::table('specialists')
-                    ->where('id','=', $request->get('assignedTo'))
-                    ->get();
+            if($request->get('solved') == "Yes"){
                 $specialist->solvedCases=$specialsolvedval+1;
                 $specialist->save();
             }
         }
-
         $case->employeeID=$request->get('employeeID');
         $case->fname=$request->get('fname');
         $case->sname=$request->get('sname');
